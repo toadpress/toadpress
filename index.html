@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>toad press</title>
+    <style>
+        body {
+            /* Fallback color before script runs */
+            background-color: #AFF0B8; 
+            color: #333333;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            line-height: 1.7;
+            margin: 0;
+            padding: 30px 10px;
+        }
+
+        .wrapper {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        /* 1101 Classic Beveled 3D Box with Shadow */
+        .classic-box {
+            background-color: #ffffff;
+            border: 4px ridge #d0c8be;
+            margin-bottom: 12px;
+            border-collapse: separate;
+            border-spacing: 2px;
+            width: 100%;
+            box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Inset 3D Cell Shading */
+        .classic-box td {
+            border: 2px groove #e8e2d8;
+            padding: 12px;
+            vertical-align: top;
+        }
+
+        .col-side {
+            width: 100px;
+            background-color: rgba(255, 255, 255, 0.4);
+            text-align: center;
+        }
+
+        .col-center {
+            text-align: left;
+            padding: 20px !important;
+            background-color: #ffffff;
+        }
+
+        .header-center {
+            text-align: center;
+            padding: 20px 10px !important;
+            background-color: #ffffff;
+        }
+
+        /* Classic 1101 Yellow Sticker / Outlined Logo Style */
+        h1 {
+            font-family: "Arial Black", "Helvetica Neue", Helvetica, sans-serif;
+            font-weight: 900;
+            font-style: italic;
+            font-size: 34px;
+            color: #ffe600; /* Bold 1101 Yellow Fill */
+            margin: 0 0 2px 0;
+            display: inline-block;
+            
+            /* Thick crisp black outline */
+            -webkit-text-stroke: 1.8px #000000;
+            
+            /* Slight forward slant + drop shadow for depth */
+            transform: skewX(-8deg);
+            filter: drop-shadow(2px 2px 0px #000000);
+            letter-spacing: -0.5px;
+        }
+
+        /* Coolvetica Style Subtitle: Ultra-tight tracking, solid bold black */
+        .coolvetica-subtitle {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-weight: 900;
+            font-size: 15px;
+            color: #111111; /* Solid dark black fill */
+            margin-top: 2px;
+            margin-bottom: 6px;
+            display: block;
+            
+            /* Signature Coolvetica ultra-tight spacing */
+            letter-spacing: -1.2px;
+        }
+
+        .subtitle-tagline {
+            margin: 4px 0;
+            font-size: 12px;
+            color: #777777;
+        }
+
+        .version-date {
+            font-size: 12px;
+            font-weight: bold;
+            color: #555555;
+            margin-top: 10px;
+        }
+
+        /* 1101 Banner Style with 3D Bevel */
+        .day-banner {
+            background-color: #e5f5e0; 
+            border: 3px ridge #d0c8be;
+            text-align: center;
+            padding: 4px 0;
+            margin-top: 20px;
+            margin-bottom: 12px;
+            font-size: 11px;
+            color: #333333;
+            font-weight: bold;
+            box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Animated Flashing Checkerboard Ribbon */
+        .checkerboard {
+            height: 8px;
+            margin-top: 4px;
+            background: repeating-linear-gradient(
+                90deg,
+                #222222 0px,
+                #222222 15px,
+                #fdd835 15px,
+                #fdd835 30px
+            );
+            animation: flash 1s steps(1) infinite;
+        }
+
+        /* Keyframe logic: Inverts colors on step 2 */
+        @keyframes flash {
+            0% {
+                background: repeating-linear-gradient(
+                    90deg,
+                    #222222 0px,
+                    #222222 15px,
+                    #fdd835 15px,
+                    #fdd835 30px
+                );
+            }
+            50% {
+                background: repeating-linear-gradient(
+                    90deg,
+                    #fdd835 0px,
+                    #fdd835 15px,
+                    #222222 15px,
+                    #222222 30px
+                );
+            }
+        }
+
+        .essay-title {
+            font-family: "Helvetica Neue Extended", "Helvetica Extended", "Arial Black", Helvetica, Arial, sans-serif;
+            font-size: 18px;
+            color: #2b3a42;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .sidebar-item img {
+            max-width: 75px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .ask-link {
+            text-decoration: none;
+            display: block;
+        }
+
+        /* 1101 Style Feedback Button */
+        .feedback-container {
+            margin-top: 20px;
+            padding-top: 10px;
+            text-align: left;
+        }
+
+        .feedback-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            color: #777777;
+            font-size: 12px;
+            font-weight: bold;
+            transition: color 0.2s ease;
+        }
+
+        .feedback-icon {
+            width: 18px;
+            height: 14px;
+            stroke: #888888;
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            transition: stroke 0.2s ease;
+        }
+
+        /* Hover Effect: Green Envelope */
+        .feedback-link:hover .feedback-icon {
+            stroke: #2e7d32;
+        }
+
+        .feedback-link:hover {
+            color: #2e7d32;
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 12px;
+            color: #666666;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+
+    <!-- HEADER TABLE -->
+    <table class="classic-box">
+        <tr>
+            <td class="col-side">
+                <div class="sidebar-item">
+                    <img src="toad_main.PNG" alt="Toad Icon">
+                </div>
+            </td>
+
+            <td class="header-center">
+                <h1>toad press</h1>
+                <div>
+                    <span class="coolvetica-subtitle">tariq's online (almost) daily press</span>
+                </div>
+                <p class="subtitle-tagline"><i>a small personal site that shares human vibes.</i></p>
+                <div id="version-date" class="version-date">07-25-2026-SAT version</div>
+            </td>
+
+            <td class="col-side">
+                <div class="sidebar-item">
+                    <!-- Frog Image Link (Bluesky) -->
+                    <a href="https://bsky.app/profile/toadpress.com" target="_blank">
+                        <img src="toad_question.PNG" alt="Ask a Toad">
+                    </a>
+                    
+                    <!-- Text Link (Email) -->
+                    <a href="mailto:hello@toadpress.com" class="ask-link">
+                        <span style="font-size: 11px; color: #3f5e4d; display: block; margin-top: 4px;">ask me anything</span>
+                    </a>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+
+    <!-- TODAY'S ESSAY BLOCK (SATURDAY 07-25-2026) -->
+    <table class="classic-box">
+        <tr>
+            <td class="col-side">
+                <div class="sidebar-item">
+                    <img id="doodle-today" src="toad_coffee.png" alt="Today Doodle">
+                </div>
+            </td>
+
+            <td class="col-center">
+                <h2 class="essay-title">Saturday's Entry 07-25-2026</h2>
+
+<p>Free samples at grocery stores are a thing of wonder. There is something about driving (or walking, or biking if you live in a walkable city) to a store for the purpose of transacting money for goods, only to be met by happy store workers asking you to try their products - for free! I’ve always loved the idea of free samples and they <i>always</i> brighten a shopping trip.</p>
+
+<p>Today, we stopped at a newly opened grocery store with the honest intention of finding a nice pastry to snack on. We were initially greeted by the smells of papaya and oranges. We also saw some tasty lychee fruit for sale. In all honesty, the fruit looked delicious, but our mission was for a pastry.</p>
+
+<p>I should also note that I hadn’t had my morning coffee at this point (normal routine fell victim to a Saturday morning change-up and a desire to ‘get the shopping done early’) so I was also hoping for a hot cup. Soon, we found a small cafe in the middle of the shop.</p>
+
+<p>Hooray!</p>
+
+<p>We ordered a 12 oz cup of coffee ($1.99, not a bad price in today’s economy) and marveled at huge, warm chocolate chip cookies. These were $3.99, but our hunger and joy at finding what we embarked to find made it easy to decide to purchase one. The options were chocolate chip or chocolate chip + walnut. I’m a sucker for walnuts in my sweets. I’m also a sucker for anything that follows a “+.” <i>New game +</i> after finishing a video game? Let’s go!</p>
+
+<p>Fresh was an understatement. The cookie was hot and the chocolate melted as we broke the large, rounded cookie in half for each of us to share. It was a perfect snack to pair with a good cup of coffee. My wife saved the big chunks of walnuts for me.</p>
+
+<p>Even more perfect? The <i>free</i> samples around the corner. I still had cookie crumbling out of my mouth when I saw, with great excitement, a stand manned by a single employee handing out a decent-sized sample of pasta alfredo paired with a small piece of garlic bread. Two for one! Like a kid eyeing a house with king size candy bars on Halloween while a fun size candy is still melting in his mouth, I darted towards it.</p>
+
+<p>After this, we found a stand serving a spinach pie coupled with mediterranean rice and veggie medley and a perfectly crisp pita chip. Next, 12 month aged gouda cheese. And, finally, pitted pimento olives, two per sample. All of this, plus half a chocolate chip (+ walnut) cookie and a cup of hot coffee, filled us right up. The delight was both spoken and unspoken. A dimpled grin.</p>
+
+<p>Now, we did not purchase any of the items we sampled and, to be truthful, we rarely do. Once, at Costco Wholesale, a customer held a strange stance at a sample counter and exclaimed, “I’m not one of those people who samples and doesn’t buy! I <i>always</i> buy what I sample!” as if to prove a point. Maybe this stemmed from some self consciousness that I am sure we all encounter when taking a free sample. I resolve that with a “thank you” but I suppose a declaration of firm commitment to buying the product is yet another resolution.</p>
+
+<p>Regardless, sometimes we <i>do</i> buy a sampled product, and we usually continue to buy it time and time again afterwards. I think therein lies the beauty of free samples. They may not always hit it out of the park but, every now and then, for different people, different products will resonate concordantly with their own personal palate.</p>
+
+<p>The other half of the beauty of free samples (if it ultimately only has two halves) is the joy of discovery. I feel that we humans love the adventure of searching and finding, especially when not expected. It is this process that can turn a simple grocery store trip into a treasure hunt. And who doesn’t love a good treasure hunt?</p>
+
+<p>We’ve all got a bit of a pirate inside us, I’m sure!</p>
+
+<p>Thank you for reading Toad Press today, and good luck on finding your own trove of free samples soon.</p>
+
+<p style="text-align: right; font-weight: bold; margin-bottom: 0;">- Tariq</p>
+
+                <!-- Feedback Link -->
+                <div class="feedback-container">
+                    <a href="mailto:hello@toadpress.com?subject=Feedback%20on%20Saturday's%20Entry" class="feedback-link">
+                        <svg class="feedback-icon" viewBox="0 0 24 24">
+                            <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                        </svg>
+                        <span>share your thoughts</span>
+                    </a>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+
+    <!-- YESTERDAY'S BANNER -->
+    <div class="day-banner">
+        ↓ This is the update from YESTERDAY
+        <div class="checkerboard"></div>
+    </div>
+
+    <!-- YESTERDAY'S ESSAY BLOCK (FRIDAY 07-24-2026) -->
+    <table class="classic-box">
+        <tr>
+            <td class="col-center">
+                <h2 class="essay-title">Friday's Entry 07-24-2026</h2>
+
+<p>I often find myself returning to certain albums for listening pleasure or enjoyment. One such album is a piano cover rendition of <i>Animal Crossing: New Horizons</i> hour-based soundtrack by TPR. He named it <i>A Midnight Snack</i>, if you haven’t given it a listen, I highly recommend it!</p>
+
+<p>The piano arrangements are subtle and fleeting, and the songs (aptly named after the different hours of the day, which follows the real time-based play style of the game) blend almost seamlessly together. There are twenty-four tracks, but you would never be able to tell. I personally like to put the album on a loop…in that case you <i>really</i> can’t tell.</p>
+
+<p>There are many times in the years since the album released that I have found myself almost reflexively turning the album on. Slow mornings in the kitchen, the smell of freshly ground coffee beans wafting through the air. On rainy days, when something as slight and delightful as a familiar sound track compliments the pattering rain on the window just perfectly. Nights when anxiety fills not only the mind but the space you occupy and pressing <i>play</i> instantly helps you take two steps back. Deep breaths.</p>
+
+<p>I could go on and go into specifics, but I hope you get the idea. The album was monumental for me not only because of the way it coupled so well with quiet and loud moments of my life, but for the memories each song beckons.</p>
+
+<p><i>New Horizons</i> was released on March 20, 2020, deep in the trenches of the initial uproar and wave of the COVID-19 pandemic. I can’t think of a better time for the release of a cozy life simulation game that focuses on social interactions with neighbors (cute animals), outdoor activities (fishing, bug catching, fossil digging), artsy crafting, and home design. In fact, most people were acutely aware of how perfect the timing was for the release of the game six years ago. My brother had a Nintendo Switch and purchased the game, and I dipped into some of my savings to buy a Switch Lite and the digital version of the game (the physical editions were all sold out). After loading the game and naming our islands, the uncertainty and fear of what was happening in the world muted slightly. We started planting trees and swapping fruits and shaping our villages, all while staying inside.</p>
+
+<p>I played the game for hours upon hours, as did many other people around the world. I only slowed down when I began my residency in July of that year, but would make time to return as much as I could. Writing this essay today, I am sad to admit that I only boot up my save file maybe once a year.</p>
+
+<p>Regardless, I think it is because of these memories that an album like <i>A Midnight Snack</i> struck such a chord within me. The time I spent in the game, hour upon hour, is reflected so perfectly and quaintly in each track that TPR excellently arranged and performed.</p>
+
+<p>Whenever I start the album, I am returned to the small bedroom where my brother and I played the game at the dawn of its release. I am returned to the pure and simple delight of hearing that familiar whistle jingle when catching a desirable fish. I am returned to the simple days hidden among the nightmare pandemic.</p>
+
+<p>I don’t remember if, six years ago, I was aware of how monumental those days would be in my future memories, but I think now I can safely repeat the familiar adage: <i>man, those were the days!</i>.</p>
+
+<p>Those were the days, sure. But so are these days!</p>
+
+<p>I think if I reflect on those early days with <i>New Horizons</i> and only surmise feelings of sadness and longing for days long past, I am essentially condemning any chances of enjoying the present. Growing up is realizing how quickly time actually passes, and how important it is to make the most of the days as they happen.</p>
+
+<p>So, I hope in another six years, when I play <i>A Midnight Snack</i> I will still be able to remember those fond early days of playing the game. But, even more so, I hope I can add the delight of writing this short essay to those happy memories. And the album, of course, will continue to loop on, hour after hour.</p>
+
+<p style="text-align: right; font-weight: bold; margin-bottom: 0;">- Tariq</p>
+
+                <!-- Feedback Link -->
+                <div class="feedback-container">
+                    <a href="mailto:hello@toadpress.com?subject=Feedback%20on%20Friday's%20Entry" class="feedback-link">
+                        <svg class="feedback-icon" viewBox="0 0 24 24">
+                            <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                        </svg>
+                        <span>share your thoughts</span>
+                    </a>
+                </div>
+            </td>
+
+            <td class="col-side">
+                <div class="sidebar-item">
+                    <img id="doodle-yesterday" src="toad_book.png" alt="Yesterday Doodle">
+                </div>
+            </td>
+        </tr>
+    </table>
+
+
+    <!-- DAY BEFORE YESTERDAY BANNER -->
+    <div class="day-banner">
+        ↓ This is the update from DAY BEFORE YESTERDAY
+        <div class="checkerboard"></div>
+    </div>
+
+    <!-- DAY BEFORE YESTERDAY BLOCK (THURSDAY 07-23-2026) -->
+    <table class="classic-box">
+        <tr>
+            <td class="col-side">
+                <div class="sidebar-item">
+                    <img id="doodle-daybefore" src="toad_main.PNG" alt="Doodle">
+                </div>
+            </td>
+
+            <td class="col-center">
+                <h2 class="essay-title">Thursday's Entry 07-23-2026</h2>
+
+<p>There is something to be said about the particularities of a house cat. Perhaps (and most likely) it is just my cat, but I wonder if these behaviors are similar for all domesticated felines. Let’s dig into what I’m referring to, but first, a short biography of my friend in question.</p>
+
+<p>My cat is 9 years old, covered in striped gray fur, and not exactly the type to curl up in mine - or anyone else’s - lap. There are exceptions to every rule, and sometimes she will surprise me by randomly claiming my lap as her new domain, but usually she won’t. As an extension of this, she isn’t the most affectionate cat to guests. I discussed this recently with her veterinarian, she surmised that it is because my cat was born to a feral cat which most likely leads to her more wild tendencies.</p>
+
+<p>Regardless, she is 100% a house cat. I first brought her home as a kitten, ten weeks old, while in graduate school. From there we moved from one apartment to another, back to my parents home during the COVID-19 pandemic, then to another apartment, a rented house, a rented condominium…I think you get the picture. She may very well have been a hybrid indoor-outdoor cat if I got her when I owned a house, but that just wasn’t the case. (I actually still don’t own a house, so she may be in her frail older years when that opportunity strikes). Despite this, cats make great house companions. Unlike dogs they don’t need to be taken outside for walks regularly. People still own dogs in apartments, but it is a bit harder. I think this is why things such as Tomogatchi and Digimon and neopets caught on with such a frenzy in the ‘90s and ‘00s. They allowed people who just couldn’t feasibly have pets to have a pet of some kind.</p>
+
+<p>So, yes, she is a full house cat, but I guess from what the veterinarian suggested, she can’t shake her genes. Maybe those feral genes contribute to her particularities. Maybe it’s just part and parcel of being a cat. Who knows, but let me list some of those traits for you:</p>
+
+<p>She loves cream cheese, but only when it is given in an unhurried manner. This is her absolute delicacy, but if she sees you packing a suitcase and moving her cat carrier nearby and then offering the cream cheese, she will bolt. She had become too wise to fall for such a trap.</p>
+
+<p>In the same light, she loves dairy and will drink a whole cup of milk if left alone, but doesn’t like ultra-filtered milk. I actually looked into this particularity because it genuinely surprised me. I don’t think my cat likes the content of the ultra-filtered milk, specifically the reduction in sugar. Hear me out. As it turns out, the ultra-filtration process takes pasteurized skim milk through extremely fine filters under high pressure which allows milk and protein to pass through but leaves out certain larger molecules like lactose and water. Later, the milk producer (milker? No, that’s not an appropriate term) adds the desired amount of water and molecules and minerals back and then pasteurizes again at extreme temperatures. Hopefully I haven’t lost you - all of this is to say that the end product has 50% less sugar. My cat won’t drink it. However, if she sees that same milk at the bottom of a cereal bowl, she will make it disappear in a few seconds. My theory is that I’ve successfully added more sugar back to the milk, thereby becoming her hero!</p>
+
+<p>Ok, that may be a stretch.</p>
+
+<p>Another particularity regarding food: In her younger years, she would eat meat but only if it was made in a bolognese sauce. Come to think of it, she would usually just eat the sauce and leave the meat. She’d love it in Italy.</p>
+
+<p>I can buy her the fanciest toys and she will maybe play with them once or twice, but a twistie-tie from a bag of bread will give her hours of enjoyment. She has eaten parts of these metallic ties on a few occasions, which is why I try not to let her have them. I can’t imagine that would be a fun digestion for me, let alone a small cat.</p>
+
+<p>She will sleep in the bed with me, but only on my chest. She will sleep in the bed with my wife, but only next to her. The reasoning is a mystery.</p>
+
+<p>I am sure more particularities will come to mind, and if I generate a decent list I will write an update essay. None of this is to say that these particularities annoy me. On the contrary, they usually paint a smile across my face. Adopting my cat as part of my family when she was a kitten was one of the best things I did. Admittedly, she has been in whichever home I have occupied through thick and thin. She was there with me during some of the saddest moments of my life and she has seen me cry a number of times. She was also there with me during some of the happiest moments.</p>
+
+<p>But, now that I think about it, never for the absolute happiest moments. She wasn’t there with me when I met my wife, or when I got married. She wasn’t with me at my final graduation. She wasn’t there when my baby boy was born. She didn’t come with us when we went to Japan for a few weeks. Realizing this casts some sadness, but also helps me understand the importance of our daily interactions. Yes, she is a house cat, which makes it convenient for a working man to have a pet. But it may be less convenient for her, who may want to dash outside and catch a bird or hunt a field mouse whenever she stares longingly out of our backyard window. Her enrichment is dictated by my schedule and the false sense of security that “she is taking care of herself” leads to missed opportunities for us bonding. But thankfully, my schedule is in a large part in my control. Perhaps the greatest part of writing this essay today is reflecting on the time I can and maybe haven’t spent with her. So, sure, she was not there with me for those happiest life events, but maybe I can make more delightful ones by devoting time to be there with her today, and tomorrow, and the next day.</p>
+
+<p>I can give her cream cheese without expectation. I can leave the rest of my cereal milk for her. I’ll even let her play with a twistie-tie, with supervision. And, at the end of it all, we will hopefully both lay down next to each other, tired at the end of a long day, finishing yet another day of our lives together, nearly ten years going.</p>
+
+<p style="text-align: right; font-weight: bold; margin-bottom: 0;">- Tariq</p>
+
+                <!-- Feedback Link -->
+                <div class="feedback-container">
+                    <a href="mailto:hello@toadpress.com?subject=Feedback%20on%20Thursday's%20Entry" class="feedback-link">
+                        <svg class="feedback-icon" viewBox="0 0 24 24">
+                            <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                        </svg>
+                        <span>share your thoughts</span>
+                    </a>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <footer>
+        <p>&copy; 2026 • toad press</p>
+    </footer>
+
+</div>
+
+<!-- DYNAMIC DAILY SCRIPT -->
+<script>
+    // 1. Set Background & Banner Colors
+    const dailyColors = {
+        0: '#EDD1B3', // Sunday
+        1: '#AFF0B8', // Monday
+        2: '#F8A29D', // Tuesday
+        3: '#FBCF98', // Wednesday
+        4: '#F9F4A2', // Thursday
+        5: '#B1DDDD', // Friday
+        6: '#DCBEF1'  // Saturday
+    };
+
+    const now = new Date();
+    const dayIndex = now.getDay();
+    const currentColor = dailyColors[dayIndex];
+
+    document.body.style.backgroundColor = currentColor;
+
+    const banners = document.querySelectorAll('.day-banner');
+    banners.forEach(banner => {
+        banner.style.backgroundColor = currentColor;
+    });
+
+    // 2. Format & Automatically Update Header Version Date (MM-DD-YYYY-DDD version)
+    const daysArr = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+    const mm = String(now.getMonth() + 1).padStart(2, '0');
+    const dd = String(now.getDate()).padStart(2, '0');
+    const yyyy = now.getFullYear();
+    const dayName = daysArr[dayIndex];
+
+    const formattedDate = `${mm}-${dd}-${yyyy}-${dayName} version`;
+    document.getElementById('version-date').textContent = formattedDate;
+
+    // 3. Seeded Daily Shuffle (Stays fixed all day, changes tomorrow)
+    const doodles = [
+        'toad_coffee.png',
+        'toad_book.png',
+        'toad_soccer.png',
+        'toad_snorkle.png',
+        'toad_backpack.png'
+    ];
+
+    // Create a unique numeric seed from today's date (e.g., 20260725)
+    let seed = Number(`${yyyy}${mm}${dd}`);
+
+    // Simple pseudo-random generator based on the daily seed
+    function seededRandom() {
+        let x = Math.sin(seed++) * 10000;
+        return x - Math.floor(x);
+    }
+
+    // Fisher-Yates shuffle using our daily seed generator
+    for (let i = doodles.length - 1; i > 0; i--) {
+        const j = Math.floor(seededRandom() * (i + 1));
+        [doodles[i], doodles[j]] = [doodles[j], doodles[i]];
+    }
+
+    // Assign the unique set for today
+    document.getElementById('doodle-today').src = doodles[0];
+    document.getElementById('doodle-yesterday').src = doodles[1];
+    document.getElementById('doodle-daybefore').src = doodles[2];
+</script>
+
+</body>
+</html>
