@@ -463,7 +463,7 @@
         banner.style.backgroundColor = currentColor;
     });
 
-    // 2. Format & Automatically Update Header Version Date (MM-DD-YYYY-DDD version)
+    // 2. Format & Automatically Update Header Version Date
     const daysArr = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
     const mm = String(now.getMonth() + 1).padStart(2, '0');
     const dd = String(now.getDate()).padStart(2, '0');
@@ -473,34 +473,47 @@
     const formattedDate = `${mm}-${dd}-${yyyy}-${dayName} version`;
     document.getElementById('version-date').textContent = formattedDate;
 
-    // 3. Seeded Daily Shuffle (Stays fixed all day, changes tomorrow)
+    // 3. Seeded Daily Shuffle
     const doodles = [
         'toad_coffee.PNG',
         'toad_book.PNG',
         'toad_soccer.PNG',
         'toad_snorkle.PNG',
-        'toad_backpack.PNG'
+        'toad_backpack.PNG',
+        'toad_chubby.PNG'
     ];
 
-    // Create a unique numeric seed from today's date (e.g., 20260725)
+    // Seed calculation based on YYYYMMDD
     let seed = Number(`${yyyy}${mm}${dd}`);
 
-    // Simple pseudo-random generator based on the daily seed
     function seededRandom() {
         let x = Math.sin(seed++) * 10000;
         return x - Math.floor(x);
     }
 
-    // Fisher-Yates shuffle using our daily seed generator
-    for (let i = doodles.length - 1; i > 0; i--) {
+    // Clone array so we don't mutate original during shuffle
+    let shuffled = [...doodles];
+    for (let i = shuffled.length - 1; i > 0; i--) {
         const j = Math.floor(seededRandom() * (i + 1));
-        [doodles[i], doodles[j]] = [doodles[j], doodles[i]];
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
     }
 
-    // Assign the unique set for today
-    document.getElementById('doodle-today').src = doodles[0];
-    document.getElementById('doodle-yesterday').src = doodles[1];
-    document.getElementById('doodle-daybefore').src = doodles[2];
+    // Helper to safely set image source with fallback
+    function setImage(id, src) {
+        const img = document.getElementById(id);
+        if (img) {
+            img.onerror = function() {
+                this.onerror = null;
+                this.src = 'toad_main.PNG'; // Fallback if image fails to load
+            };
+            img.src = './' + src;
+        }
+    }
+
+    // Assign shuffled doodles to the sidebars
+    setImage('doodle-today', shuffled[0]);
+    setImage('doodle-yesterday', shuffled[1]);
+    setImage('doodle-daybefore', shuffled[2]);
 </script>
 
 </body>
