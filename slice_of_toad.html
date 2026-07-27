@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slice of Toad — Archive</title>
+    <style>
+        body {
+            /* Classic Soft Hobonichi Sky Blue Background */
+            background-color: #94c5ff; 
+            color: #333333;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            line-height: 1.7;
+            margin: 0;
+            padding: 20px 10px;
+        }
+
+        .wrapper {
+            max-width: 780px;
+            margin: 0 auto;
+        }
+
+        /* 1101 Classic Beveled 3D Box */
+        .classic-box {
+            background-color: #ffffff;
+            border: 4px ridge #d0c8be;
+            margin-bottom: 15px;
+            border-collapse: separate;
+            border-spacing: 2px;
+            width: 100%;
+            box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.25);
+        }
+
+        .classic-box td {
+            border: 2px groove #e8e2d8;
+            padding: 12px;
+            vertical-align: top;
+        }
+
+        /* HEADER BANNER */
+        .header-banner {
+            position: relative;
+            height: 120px;
+            /* Solid #94c5ff across title area (top 60%), gradient begins near horizon */
+            background: linear-gradient(to bottom, #94c5ff 0%, #94c5ff 60%, #b8dcff 85%, #d8edff 100%);
+            border: none;
+            box-shadow: none;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+
+        /* Clean White Katamari/Futura Style Two-Line Title (Left-Aligned) */
+        .comic-header-title {
+            position: absolute;
+            top: 14px;
+            left: 20px;
+            font-family: "Futura-Heavy", "Futura", "M PLUS Rounded 1c", "Avenir Next", "Century Gothic", "Aptos", sans-serif;
+            font-weight: 900;
+            font-size: 32px;
+            line-height: 1.0;
+            color: #ffffff; 
+            letter-spacing: -0.8px;
+            display: inline-block;
+            text-align: left;
+            z-index: 10;
+            margin: 0;
+            text-transform: none; 
+        }
+
+        .comic-header-title .toad-word {
+            display: block;
+            margin-top: -3px; /* Keeps "Toad" sitting tight closer to "Slice of" */
+        }
+
+        /* KATAMARI STYLE DUAL-LAYER ROLLING GRASS HILLS */
+        .grass-bg {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 45px;
+            fill: #73be1e; /* Cooler background hill tone sampled from Katamari cover */
+            z-index: 1;
+        }
+
+        .grass-fg {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 32px;
+            fill: #8ed919; /* Vibrant signature Katamari foreground green */
+            z-index: 2;
+        }
+
+        /* 5x5 COMPACT CALENDAR-STYLE GRID SIDEBAR */
+        .sidebar-grid-container {
+            width: 145px;
+            background-color: #f7f4ee;
+            padding: 12px 10px 75px 10px !important;
+            text-align: center;
+            position: relative;
+            vertical-align: top;
+        }
+
+        .grid-title {
+            font-size: 11px;
+            font-weight: bold;
+            color: #7a7369;
+            opacity: 0.6;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .grid-5x5 {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0;
+            border: 2px groove #d0c8be;
+            background-color: #d0c8be;
+        }
+
+        .grid-square {
+            aspect-ratio: 1;
+            background-color: #ffffff;
+            box-shadow: inset 0 0 0 1px #d0c8be;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: bold;
+            color: #b0a8a0;
+            text-decoration: none;
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        .grid-square.active {
+            background-color: #ffe600;
+            color: #111111;
+            box-shadow: inset 0 0 0 1px #333333;
+            cursor: pointer;
+            z-index: 1;
+        }
+
+        .grid-square.active:hover {
+            background-color: #ffaa00;
+        }
+
+        /* SIDEBAR STAMP & RETURN HOME LINK - PINNED FLUSH TO BOTTOM */
+        .sidebar-stamp-container {
+            position: absolute;
+            bottom: 12px;
+            left: 10px;
+            right: 10px;
+            text-align: center;
+        }
+
+        .stamp-img {
+            max-width: 40px;
+            height: auto;
+            display: block;
+            margin: 0 auto 4px auto;
+            
+            /* Single-color stamp tone matching grid border */
+            filter: grayscale(100%);
+            opacity: 0.5;
+            transition: opacity 0.2s ease;
+        }
+
+        .sidebar-return-link {
+            display: block;
+            text-decoration: none;
+            font-size: 11px;
+            color: #888888;
+            line-height: 1.2;
+            transition: opacity 0.2s ease;
+        }
+
+        /* Hover effect: Lighter opacity */
+        .sidebar-return-link:hover .stamp-img {
+            opacity: 0.25;
+        }
+
+        .sidebar-return-link:hover {
+            color: #888888;
+            opacity: 0.6;
+            text-decoration: underline;
+        }
+
+        /* CENTER CONTENT */
+        .col-center {
+            text-align: center;
+            padding: 20px !important;
+            background-color: #ffffff;
+        }
+
+        .comic-title {
+            font-family: "Helvetica Neue Extended", "Helvetica Extended", "Arial Black", sans-serif;
+            font-size: 18px;
+            color: #2b3a42;
+            margin-top: 0;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+
+        .comic-container {
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        .comic-img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+
+    <!-- HEADER BANNER -->
+    <div class="header-banner">
+        <h1 class="comic-header-title">
+            <span>Slice of</span>
+            <span class="toad-word">Toad</span>
+        </h1>
+
+        <!-- Background Grass Hills Layer -->
+        <svg class="grass-bg" viewBox="0 0 500 100" preserveAspectRatio="none">
+            <path d="M0,40 Q120,10 250,30 T500,20 L500,100 L0,100 Z" />
+        </svg>
+
+        <!-- Foreground Grass Hills Layer -->
+        <svg class="grass-fg" viewBox="0 0 500 100" preserveAspectRatio="none">
+            <path d="M0,35 Q180,60 330,25 T500,40 L500,100 L0,100 Z" />
+        </svg>
+    </div>
+
+    <!-- MAIN COMIC & GRID CONTAINER -->
+    <table class="classic-box">
+        <tr>
+            <!-- 5x5 SEAMLESS CALENDAR GRID SIDEBAR -->
+            <td class="sidebar-grid-container">
+                <div class="grid-title">Index</div>
+                <div class="grid-5x5">
+                    <!-- Row 1 -->
+                    <a href="slice_of_toad.html" class="grid-square active" title="Comic #1">1</a>
+                    <span class="grid-square"></span>
+                    <span class="grid-square"></span>
+                    <span class="grid-square"></span>
+                    <span class="grid-square"></span>
+
+                    <!-- Row 2 -->
+                    <span class="grid-square"></span>
+                    <span class="grid-square"></span>
+                    <span class="grid-square"></span>
+                    <span class="grid-square"></span>
+                    <span class="grid-square"></span>
+
+                    <!-- Row 3 -->
+                    <span class="grid-square"></span>
+                    <span class="grid-square"></span>
+                    <span class="grid-square"></span>
+                    <span class="grid-square"></span>
+                    <span class="grid-square"></span>
+
+                    <!-- Row 4 -->
+                    <span class="grid-square"></span>
+                    <span class="grid-square"></span>
+                    <span class="grid-square"></span>
+                    <span class="grid-square"></span>
+                    <span class="grid-square"></span>
+
+                    <!-- Row 5 -->
+                    <span class="grid-square"></span>
+                    <span class="grid-square"></span>
+                    <span class="grid-square"></span>
+                    <span class="grid-square"></span>
+                    <span class="grid-square"></span>
+                </div>
+
+                <!-- BOTTOM SIDEBAR RETURN STAMP -->
+                <div class="sidebar-stamp-container">
+                    <a href="index.html" class="sidebar-return-link">
+                        <img class="stamp-img" src="toad_main.PNG" alt="Toad Press Stamp">
+                        return to Toad Press homepage
+                    </a>
+                </div>
+            </td>
+
+            <!-- COMIC DISPLAY PANEL -->
+            <td class="col-center">
+                <h2 class="comic-title">Episode 1: Begin Adventure</h2>
+                
+                <div class="comic-container">
+                    <img class="comic-img" src="slice_of_toad_1.png" alt="Slice of Toad Comic #1">
+                </div>
+            </td>
+        </tr>
+    </table>
+
+</div>
+
+</body>
+</html>

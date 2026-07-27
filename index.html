@@ -168,6 +168,52 @@
             margin: 0 auto;
         }
 
+        /* SLICE OF TOAD SIDEBAR LINK & LOGO */
+        .comic-sidebar-link {
+            display: inline-block;
+            text-decoration: none;
+            margin-top: 28px; /* Spaced down from doodle */
+            padding: 2px 0;
+            text-align: left; /* Strict left alignment */
+        }
+
+        .comic-sidebar-logo {
+            font-family: "Futura-Heavy", "Futura", "M PLUS Rounded 1c", "Avenir Next", "Century Gothic", sans-serif;
+            font-weight: 900;
+            font-size: 16px;
+            line-height: 1.0;
+            color: #2e7d32; /* Green Logo Text */
+            text-decoration: none; /* Clean logo styling (no underline) */
+            letter-spacing: -0.5px;
+            display: block;
+            text-align: left;
+            transition: color 0.2s ease;
+        }
+
+        .comic-sidebar-logo .toad-word {
+            display: block;
+            margin-top: -3px; /* Brings "Toad" closer to "Slice of" */
+        }
+
+        .comic-sidebar-subtext {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 10px;
+            font-weight: bold;
+            color: #d32f2f; /* Red Subtext */
+            text-decoration: underline; /* Retro Hyperlink Style */
+            display: block;
+            text-align: left;
+            margin-top: 5px;
+            line-height: 1.2;
+            transition: color 0.2s ease;
+        }
+
+        /* Hover Effect: Text turns Dark Blue */
+        .comic-sidebar-link:hover .comic-sidebar-logo,
+        .comic-sidebar-link:hover .comic-sidebar-subtext {
+            color: #1a365d;
+        }
+
         /* Comic image wrapper */
         .comic-container {
             text-align: center;
@@ -278,6 +324,15 @@
             <td class="col-side">
                 <div class="sidebar-item">
                     <img id="doodle-today" src="toad_coffee.PNG" alt="Today Doodle">
+
+                    <!-- CLICKABLE SLICE OF TOAD LOGO & UPDATE LINK -->
+                    <a href="slice_of_toad.html" class="comic-sidebar-link">
+                        <span class="comic-sidebar-logo">
+                            <span>Slice of</span>
+                            <span class="toad-word">Toad</span>
+                        </span>
+                        <span class="comic-sidebar-subtext">New Comic<br>Updated 7/26</span>
+                    </a>
                 </div>
             </td>
 
