@@ -111,13 +111,25 @@
         }
 
         .slogan .slogan-line:last-child {
-            color: #68b269; /* Green for "breathing" */
+            color: #2e7d32; /* Green for "breathing" */
             margin-top: -1px; 
         }
 
         .slogan .accent-word {
             color: #5d564d; /* Matching darker column theme */
             font-style: normal; 
+        }
+
+        /* Secret music trigger period */
+        .period-trigger {
+            cursor: pointer;
+            user-select: none;
+            display: inline-block;
+            transition: transform 0.1s ease;
+        }
+
+        .period-trigger:active {
+            transform: scale(1.4);
         }
 
         .subtitle-tagline {
@@ -320,11 +332,14 @@
                 <div class="sidebar-item">
                     <img src="toad_main.PNG" alt="Toad Icon">
                     
-                    <!-- Clean Text Slogan -->
+                    <!-- Clean Text Slogan with Secret Song Trigger -->
                     <span class="slogan">
                         <span class="slogan-line">reading <span class="accent-word">is</span></span>
-                        <span class="slogan-line">breathing.</span>
+                        <span class="slogan-line">breathing<span class="period-trigger" onclick="toggleSecretMusic()" title="oh my! easter egg?">.</span></span>
                     </span>
+                    
+                    <!-- Hidden Audio Element -->
+                    <audio id="secret-song" src="smiles_and_tears.flac" preload="auto"></audio>
                 </div>
             </td>
 
@@ -517,6 +532,16 @@
 
 <!-- DYNAMIC DAILY SCRIPT -->
 <script>
+    // Secret Music Easter Egg
+    function toggleSecretMusic() {
+        const audio = document.getElementById('secret-song');
+        if (audio.paused) {
+            audio.play();
+        } else {
+            audio.pause();
+        }
+    }
+
     // 1. Set Background & Banner Colors
     const dailyColors = {
         0: '#EDD1B3', // Sunday
