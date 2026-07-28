@@ -91,6 +91,35 @@
             letter-spacing: -1.2px;
         }
 
+        /* Clean Slogan Style */
+        .slogan {
+            font-family: "Arial Black", "M PLUS Rounded 1c", "Helvetica Neue", sans-serif;
+            font-weight: 900;
+            font-size: 14px;
+            text-transform: lowercase;
+            display: inline-block; /* Allows block to be centered under logo while text remains left-aligned */
+            margin-top: 8px;
+            margin-bottom: 2px;
+            line-height: 1.0; 
+            letter-spacing: -0.5px;
+            text-align: left; /* Internal left-alignment */
+            color: #5d564d; /* Darker version of column theme */
+        }
+
+        .slogan .slogan-line {
+            display: block;
+        }
+
+        .slogan .slogan-line:last-child {
+            color: #68b269; /* Green for "breathing" */
+            margin-top: -1px; 
+        }
+
+        .slogan .accent-word {
+            color: #5d564d; /* Matching darker column theme */
+            font-style: normal; 
+        }
+
         .subtitle-tagline {
             margin: 4px 0;
             font-size: 12px;
@@ -290,6 +319,12 @@
             <td class="col-side">
                 <div class="sidebar-item">
                     <img src="toad_main.PNG" alt="Toad Icon">
+                    
+                    <!-- Clean Text Slogan -->
+                    <span class="slogan">
+                        <span class="slogan-line">reading <span class="accent-word">is</span></span>
+                        <span class="slogan-line">breathing.</span>
+                    </span>
                 </div>
             </td>
 
@@ -298,23 +333,24 @@
                 <div>
                     <span class="coolvetica-subtitle">tariq's online (almost) daily press</span>
                 </div>
+
                 <p class="subtitle-tagline"><i>a small personal site that shares human vibes.</i></p>
                 <div id="version-date" class="version-date">07-28-2026-TUE version</div>
             </td>
 
             <td class="col-side">
-    <div class="sidebar-item">
-        <!-- Frog Image Link (About Page) -->
-        <a href="about.html">
-            <img src="toad_question.PNG" alt="About Toad Press">
-        </a>
-        
-        <!-- Text Link (About Page) -->
-        <a href="about.html" class="ask-link">
-            <span style="font-size: 11px; color: #3f5e4d; display: block; margin-top: 4px;">about toad press</span>
-        </a>
-    </div>
-</td>
+                <div class="sidebar-item">
+                    <!-- Frog Image Link (About Page) -->
+                    <a href="about.html">
+                        <img src="toad_question.PNG" alt="About Toad Press">
+                    </a>
+                    
+                    <!-- Text Link (About Page) -->
+                    <a href="about.html" class="ask-link">
+                        <span style="font-size: 11px; color: #3f5e4d; display: block; margin-top: 4px;">about toad press</span>
+                    </a>
+                </div>
+            </td>
         </tr>
     </table>
 
