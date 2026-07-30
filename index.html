@@ -319,6 +319,47 @@
             color: #666666;
             margin-top: 20px;
         }
+
+        /* Alternate column layout for every second entry table */
+.classic-box:nth-of-type(even) tr {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+/* Ensure reversed sidebar cell maintains correct column width */
+.classic-box:nth-of-type(even) .col-side {
+    width: 100px;
+    flex-shrink: 0;
+}
+
+/* Ensure center essay cell takes up remaining space */
+.classic-box:nth-of-type(even) .col-center {
+    flex-grow: 1;
+}
+/* Enable flex display for all entry table rows */
+.wrapper > .classic-box:nth-of-type(n+2) tr {
+    display: flex;
+}
+
+/* Odd entries (1st/Wednesday, 3rd/Monday, 5th, etc.): Sidebar LEFT */
+.wrapper > .classic-box:nth-of-type(even) tr {
+    flex-direction: row;
+}
+
+/* Even entries (2nd/Tuesday, 4th, 6th, etc.): Sidebar RIGHT */
+.wrapper > .classic-box:nth-of-type(odd) tr {
+    flex-direction: row-reverse;
+}
+
+/* Maintain cell sizing */
+.classic-box .col-side {
+    width: 100px;
+    flex-shrink: 0;
+}
+
+.classic-box .col-center {
+    flex-grow: 1;
+}
     </style>
 </head>
 <body>
