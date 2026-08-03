@@ -210,6 +210,25 @@
             margin: 0 auto;
         }
 
+        /* Question Toad Wiggle Effect */
+        .toad-question-img {
+            transition: transform 0.2s ease;
+            display: block;
+            margin: 0 auto;
+        }
+
+        a:hover .toad-question-img {
+            animation: toadWiggle 0.4s ease-in-out forwards;
+        }
+
+        @keyframes toadWiggle {
+            0% { transform: scale(1.15) rotate(0deg); }
+            25% { transform: scale(1.15) rotate(-8deg); }
+            50% { transform: scale(1.15) rotate(8deg); }
+            75% { transform: scale(1.15) rotate(-4deg); }
+            100% { transform: scale(1.15) rotate(0deg); }
+        }
+
         /* SLICE OF TOAD SIDEBAR LINK & LOGO */
         .comic-sidebar-link {
             display: inline-block;
@@ -320,46 +339,30 @@
             margin-top: 20px;
         }
 
-        /* Alternate column layout for every second entry table */
-.classic-box:nth-of-type(even) tr {
-    display: flex;
-    flex-direction: row-reverse;
-}
+        /* Enable flex display for all entry table rows */
+        .wrapper > .classic-box:nth-of-type(n+2) tr {
+            display: flex;
+        }
 
-/* Ensure reversed sidebar cell maintains correct column width */
-.classic-box:nth-of-type(even) .col-side {
-    width: 100px;
-    flex-shrink: 0;
-}
+        /* Odd entries (1st/Sunday, 3rd/Friday): Sidebar LEFT */
+        .wrapper > .classic-box:nth-of-type(even) tr {
+            flex-direction: row;
+        }
 
-/* Ensure center essay cell takes up remaining space */
-.classic-box:nth-of-type(even) .col-center {
-    flex-grow: 1;
-}
-/* Enable flex display for all entry table rows */
-.wrapper > .classic-box:nth-of-type(n+2) tr {
-    display: flex;
-}
+        /* Even entries (2nd/Wednesday): Sidebar RIGHT */
+        .wrapper > .classic-box:nth-of-type(odd) tr {
+            flex-direction: row-reverse;
+        }
 
-/* Odd entries (1st/Wednesday, 3rd/Monday, 5th, etc.): Sidebar LEFT */
-.wrapper > .classic-box:nth-of-type(even) tr {
-    flex-direction: row;
-}
+        /* Maintain cell sizing */
+        .classic-box .col-side {
+            width: 100px;
+            flex-shrink: 0;
+        }
 
-/* Even entries (2nd/Tuesday, 4th, 6th, etc.): Sidebar RIGHT */
-.wrapper > .classic-box:nth-of-type(odd) tr {
-    flex-direction: row-reverse;
-}
-
-/* Maintain cell sizing */
-.classic-box .col-side {
-    width: 100px;
-    flex-shrink: 0;
-}
-
-.classic-box .col-center {
-    flex-grow: 1;
-}
+        .classic-box .col-center {
+            flex-grow: 1;
+        }
     </style>
 </head>
 <body>
@@ -391,14 +394,14 @@
                 </div>
 
                 <p class="subtitle-tagline"><i>a small personal site that shares human vibes.</i></p>
-                <div id="version-date" class="version-date">07-29-2026-WED version</div>
+                <div id="version-date" class="version-date">08-02-2026-SUN version</div>
             </td>
 
             <td class="col-side">
                 <div class="sidebar-item">
                     <!-- Frog Image Link (About Page) -->
                     <a href="about.html">
-                        <img src="toad_question.PNG" alt="About Toad Press">
+                        <img class="toad-question-img" src="toad_question.PNG" alt="About Toad Press">
                     </a>
                     
                     <!-- Text Link (About Page) -->
@@ -411,7 +414,7 @@
     </table>
 
 
-    <!-- TODAY'S BLOCK (WEDNESDAY 07-29-2026) -->
+    <!-- TODAY'S BLOCK (SUNDAY 08-02-2026 - COMIC UPDATE) -->
     <table class="classic-box">
         <tr>
             <td class="col-side">
@@ -424,35 +427,21 @@
                             <span>Slice of</span>
                             <span class="toad-word">Toad</span>
                         </span>
-                        <span class="comic-sidebar-subtext">New Comic<br>Updated 7/26</span>
+                        <span class="comic-sidebar-subtext">New Comic<br>Updated 8/2</span>
                     </a>
                 </div>
             </td>
 
             <td class="col-center">
-             <h2 class="essay-title">Friday’s Entry 07/31/2026</h2>
+                <h2 class="essay-title">Slice of Toad #2: A Joke Book</h2>
 
-<p>Today is the last day of July, tomorrow will be the first day of August. As an adult, I feel like sometimes dates just don’t mean as much as when you’re younger. When I was a kid, this date would likely have inflicted some sense of slight sadness due to the diminishing days of Summer vacation.</p>
-
-<p>Summer vacation was such a formative time. Every year seemed to have a different color or taste or feeling associated with the time period, but each time was equally important. I remember how days would pass so slowly and two months seemed like such a long bank of time, until it was the night before the first day of school. Looking back, I am so fond of the time I had to bike, run barefoot in the backyard, water our garden while my parents were at work, read books underneath the living room window air conditioner, and play lots and lots of video games. It’s so strange how, by the end of the break, I returned to school feeling like everyone, including myself, aged so much.</p>
-
-<p>I miss those days. I miss the unlimited free time I had and how I used that time to satisfy whatever fascinations swarmed in my mind. In writing this, I suppose I also miss the actual time of those days. I miss counting the days and knowing the dates and understanding how many more days of ‘freedom’ I had before having to return to structure.</p>
-
-<p>Keeping a daily journal has been helping me to slow down and separate one day from another. It’s a physical reminder that each day has its own importance, even if ‘nothing’ happens. Before journaling, whenever I would sit to reflect on a recent period of time, be it a week or a month or even months, it was hard for me to delineate certain days from other days. Everything was an amorphous amalgamation of a singular, unending day. By taking time to reflect each day, even if it is to write: <em>ate some watermelon today, crisp and cold, like the underside of a pillow on a warm Summer night</em>, it immediately gives that day some meaning.</p>
-
-<p>And from that meaning, there is memory and remembrance.</p>
-
-<p>Tomorrow is the first day of August, and Summer is still long from being done, but knowing is half the battle. Taking a pause to look at the calendar and use it as a lens to see every day as a different color or taste or feeling makes our days that much more alive.</p>
-
-<p>We are here for a short time, our days of Summer vacations are largely gone, but that doesn’t mean we can’t have a living, breathing season of memories.</p>
-
-<p>And, without much need for explanation, eat lots of watermelon, seeds and all.</p>
-
-<p style="text-align: right; font-weight: bold; margin-bottom: 0;">-Tariq</p>   
+                <div class="comic-container">
+                    <img src="slice_of_toad_2.png" alt="Slice of Toad #2 Comic" class="comic-img">
+                </div>
 
                 <!-- Feedback Link -->
                 <div class="feedback-container">
-                    <a href="mailto:hello@toadpress.com?subject=Feedback%20on%20Wednesday's%20Entry" class="feedback-link">
+                    <a href="mailto:hello@toadpress.com?subject=Feedback%20on%20Sunday's%20Comic" class="feedback-link">
                         <svg class="feedback-icon" viewBox="0 0 24 24">
                             <rect x="2" y="4" width="20" height="16" rx="2"></rect>
                             <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
@@ -471,12 +460,63 @@
         <div class="checkerboard"></div>
     </div>
 
-    <!-- YESTERDAY'S BLOCK (TUESDAY 07-28-2026) -->
+    <!-- YESTERDAY'S BLOCK (FRIDAY 07-31-2026) -->
     <table class="classic-box">
         <tr>
             <td class="col-side">
                 <div class="sidebar-item">
                     <img id="doodle-yesterday" src="toad_book.PNG" alt="Yesterday Doodle">
+                </div>
+            </td>
+
+            <td class="col-center">
+                <h2 class="essay-title">Friday’s Entry 07/31/2026</h2>
+
+                <p>Today is the last day of July, tomorrow will be the first day of August. As an adult, I feel like sometimes dates just don’t mean as much as when you’re younger. When I was a kid, this date would likely have inflicted some sense of slight sadness due to the diminishing days of Summer vacation.</p>
+
+                <p>Summer vacation was such a formative time. Every year seemed to have a different color or taste or feeling associated with the time period, but each time was equally important. I remember how days would pass so slowly and two months seemed like such a long bank of time, until it was the night before the first day of school. Looking back, I am so fond of the time I had to bike, run barefoot in the backyard, water our garden while my parents were at work, read books underneath the living room window air conditioner, and play lots and lots of video games. It’s so strange how, by the end of the break, I returned to school feeling like everyone, including myself, aged so much.</p>
+
+                <p>I miss those days. I miss the unlimited free time I had and how I used that time to satisfy whatever fascinations swarmed in my mind. In writing this, I suppose I also miss the actual time of those days. I miss counting the days and knowing the dates and understanding how many more days of ‘freedom’ I had before having to return to structure.</p>
+
+                <p>Keeping a daily journal has been helping me to slow down and separate one day from another. It’s a physical reminder that each day has its own importance, even if ‘nothing’ happens. Before journaling, whenever I would sit to reflect on a recent period of time, be it a week or a month or even months, it was hard for me to delineate certain days from other days. Everything was an amorphous amalgamation of a singular, unending day. By taking time to reflect each day, even if it is to write: <em>ate some watermelon today, crisp and cold, like the underside of a pillow on a warm Summer night</em>, it immediately gives that day some meaning.</p>
+
+                <p>And from that meaning, there is memory and remembrance.</p>
+
+                <p>Tomorrow is the first day of August, and Summer is still long from being done, but knowing is half the battle. Taking a pause to look at the calendar and use it as a lens to see every day as a different color or taste or feeling makes our days that much more alive.</p>
+
+                <p>We are here for a short time, our days of Summer vacations are largely gone, but that doesn’t mean we can’t have a living, breathing season of memories.</p>
+
+                <p>And, without much need for explanation, eat lots of watermelon, seeds and all.</p>
+
+                <p style="text-align: right; font-weight: bold; margin-bottom: 0;">-Tariq</p> 
+
+                <!-- Feedback Link -->
+                <div class="feedback-container">
+                    <a href="mailto:hello@toadpress.com?subject=Feedback%20on%20Friday's%20Entry" class="feedback-link">
+                        <svg class="feedback-icon" viewBox="0 0 24 24">
+                            <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                        </svg>
+                        <span>share your thoughts</span>
+                    </a>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+
+    <!-- DAY BEFORE YESTERDAY BANNER -->
+    <div class="day-banner">
+        ↓ This is the update from DAY BEFORE YESTERDAY
+        <div class="checkerboard"></div>
+    </div>
+
+    <!-- DAY BEFORE YESTERDAY BLOCK (WEDNESDAY 07-29-2026) -->
+    <table class="classic-box">
+        <tr>
+            <td class="col-side">
+                <div class="sidebar-item">
+                    <img id="doodle-daybefore" src="toad_main.PNG" alt="Day Before Doodle">
                 </div>
             </td>
 
@@ -520,59 +560,7 @@
 
                 <!-- Feedback Link -->
                 <div class="feedback-container">
-                    <a href="mailto:hello@toadpress.com?subject=Feedback%20on%20Tuesday's%20Entry" class="feedback-link">
-                        <svg class="feedback-icon" viewBox="0 0 24 24">
-                            <rect x="2" y="4" width="20" height="16" rx="2"></rect>
-                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-                        </svg>
-                        <span>share your thoughts</span>
-                    </a>
-                </div>
-            </td>
-        </tr>
-    </table>
-
-
-    <!-- DAY BEFORE YESTERDAY BANNER -->
-    <div class="day-banner">
-        ↓ This is the update from DAY BEFORE YESTERDAY
-        <div class="checkerboard"></div>
-    </div>
-
-    <!-- DAY BEFORE YESTERDAY BLOCK (MONDAY 07-27-2026) -->
-    <table class="classic-box">
-        <tr>
-            <td class="col-side">
-                <div class="sidebar-item">
-                    <img id="doodle-daybefore" src="toad_main.PNG" alt="Day Before Doodle">
-                </div>
-            </td>
-
-            <td class="col-center">
-                <h2 class="essay-title">Tuesday's Entry 07-28-2026</h2>
-
-                <p>We are always told to wash our fruits and vegetables before eating them. The reason for this is clear: remove the germs, prevent sickness, enjoy your produce. Some people, however, always skip this step.</p>
-
-                <p>I had a good friend many years ago who never washed their fruits or veggies. She said it didn’t make much difference and she never fell ill from not washing an apple. I found this quite surprising. “What about potatoes? Mushrooms?” I remember she shrugged and said she would ‘dust them off.’ To each their own.</p>
-
-                <p>Even though we are always told to wash our produce, I think everyone has at least once or twice in their life skipped this step. This made me wonder, is there any other benefit to the ritual of washing our food other than the fact that <em>we were always told to do it</em>?</p>
-
-                <p>Most of us are fully removed from the work of gardening or farming and couldn’t answer questions related to which seasons certain fruits and vegetables grow, the climates they desire, how they need to be planted, or when they need to be harvested. Most of us simply visit a grocery store, knock on a hard shelled melon for a resonant sound or sniff an orange for a familiar scent and decide to buy or not. The nature of it all has been removed.</p>
-
-                <p>This got me thinking.</p>
-
-                <p>Even though we may not grow the fruits and vegetables (especially if we live in cities or small rental units), washing them gives us the opportunity to have a separate connection with the crops that is different from the two main connections we already have set in place: purchasing and eating. The third connection is that of handling, inspecting, cleaning, and drying. Watching water make cucumbers glisten and strawberries burn a brighter red. Soaking grapes and playfully plucking one out of cold water and handing it to the nearest companion. Searching for wayward specks of dirt on a potato and scrubbing it away.</p>
-
-                <p>The third connection is <em>nature</em>.</p>
-
-                <p>So, next time you bring your beautiful produce home, in those pseudo-sterile plastic bags, and you hesitate and waver back and forth regarding washing or not, think about the nature behind it. Think about the delight behind slowing down and cleaning the fruits that grew from small seeds in warm soil and reached for the blue sky, dreaming of the joy they could give someone as special as you.</p>
-
-                <p>I think if I can think about more things the way I think about this, I could be much more present in the mundane parts of life. That’s what I’d like to aim for!</p>
-
-                <p style="text-align: right; font-weight: bold; margin-bottom: 0;">- Tariq</p>
-                <!-- Feedback Link -->
-                <div class="feedback-container">
-                    <a href="mailto:hello@toadpress.com?subject=Feedback%20on%20Monday's%20Entry" class="feedback-link">
+                    <a href="mailto:hello@toadpress.com?subject=Feedback%20on%20Wednesday's%20Entry" class="feedback-link">
                         <svg class="feedback-icon" viewBox="0 0 24 24">
                             <rect x="2" y="4" width="20" height="16" rx="2"></rect>
                             <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
@@ -589,91 +577,48 @@
     </footer>
 
 </div>
+
 <!-- DYNAMIC DAILY SCRIPT -->
 <script>
     // Secret Music Easter Egg
     function toggleSecretMusic() {
         const audio = document.getElementById('secret-song');
-        if (audio.paused) {
-            audio.play();
-        } else {
-            audio.pause();
+        if (audio) {
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
         }
     }
 
     // 1. Set Background & Banner Colors
     const dailyColors = {
-        0: '#EDD1B3', // Sunday
-        1: '#AFF0B8', // Monday
-        2: '#F8A29D', // Tuesday
-        3: '#FBCF98', // Wednesday
-        4: '#F9F4A2', // Thursday
-        5: '#B1DDDD', // Friday
-        6: '#DCBEF1'  // Saturday
+        0: '#EDD1B3', // Sunday - Soft Sand / Peach
+        1: '#AFF0B8', // Monday - Soft Mint
+        2: '#FDF1D6', // Tuesday - Soft Yellow
+        3: '#F8A29D', // Wednesday - Coral
+        4: '#D6E5EE', // Thursday - Soft Slate Blue
+        5: '#E5D8EB', // Friday - Soft Lavender
+        6: '#E2E8F0'  // Saturday - Cool Grey
     };
 
-    const now = new Date();
-    const dayIndex = now.getDay();
-    const currentColor = dailyColors[dayIndex];
+    function applyDayTheme() {
+        const today = new Date();
+        const dayOfWeek = today.getDay(); // 0 = Sun, 1 = Mon, etc.
+        const activeColor = dailyColors[dayOfWeek] || dailyColors[0];
 
-    document.body.style.backgroundColor = currentColor;
+        // Apply background to body
+        document.body.style.backgroundColor = activeColor;
 
-    const banners = document.querySelectorAll('.day-banner');
-    banners.forEach(banner => {
-        banner.style.backgroundColor = currentColor;
-    });
-
-    // 2. Format & Automatically Update Header Version Date
-    const daysArr = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
-    const mm = String(now.getMonth() + 1).padStart(2, '0');
-    const dd = String(now.getDate()).padStart(2, '0');
-    const yyyy = now.getFullYear();
-    const dayName = daysArr[dayIndex];
-
-    const formattedDate = `${mm}-${dd}-${yyyy}-${dayName} version`;
-    document.getElementById('version-date').textContent = formattedDate;
-
-    // 3. Seeded Daily Shuffle
-    const doodles = [
-        'toad_coffee.PNG',
-        'toad_book.PNG',
-        'toad_soccer.PNG',
-        'toad_snorkle.PNG',
-        'toad_backpack.PNG'
-    ];
-
-    // Seed calculation based on YYYYMMDD
-    let seed = Number(`${yyyy}${mm}${dd}`);
-
-    function seededRandom() {
-        let x = Math.sin(seed++) * 10000;
-        return x - Math.floor(x);
+        // Apply background to all day banners
+        const dayBanners = document.querySelectorAll('.day-banner');
+        dayBanners.forEach(banner => {
+            banner.style.backgroundColor = activeColor;
+        });
     }
 
-    // Clone array so we don't mutate original during shuffle
-    let shuffled = [...doodles];
-    for (let i = shuffled.length - 1; i > 0; i--) {
-        const j = Math.floor(seededRandom() * (i + 1));
-        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-    }
-
-    // Helper to safely set image source with fallback
-    function setImage(id, src) {
-        const img = document.getElementById(id);
-        if (img) {
-            img.onerror = function() {
-                this.onerror = null;
-                this.src = 'toad_main.PNG'; // Fallback if image fails to load
-            };
-            img.src = './' + src;
-        }
-    }
-
-    // Assign shuffled doodles to the sidebars
-    setImage('doodle-today', shuffled[0]);
-    setImage('doodle-yesterday', shuffled[1]);
-    setImage('doodle-daybefore', shuffled[2]);
-    
+    document.addEventListener('DOMContentLoaded', applyDayTheme);
 </script>
 
 </body>
