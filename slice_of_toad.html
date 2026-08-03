@@ -148,6 +148,12 @@
             background-color: #ffaa00;
         }
 
+        /* Current selected episode highlight */
+        .grid-square.selected {
+            background-color: #ffaa00;
+            box-shadow: inset 0 0 0 2px #000000;
+        }
+
         /* SIDEBAR STAMP & RETURN HOME LINK - PINNED FLUSH TO BOTTOM */
         .sidebar-stamp-container {
             position: absolute;
@@ -248,8 +254,8 @@
                 <div class="grid-title">Index</div>
                 <div class="grid-5x5">
                     <!-- Row 1 -->
-                    <a href="slice_of_toad.html" class="grid-square active" title="Comic #1">1</a>
-                    <span class="grid-square"></span>
+                    <span class="grid-square active" id="btn-1" onclick="loadComic(1)" title="Comic #1: Begin Adventure">1</span>
+                    <span class="grid-square active selected" id="btn-2" onclick="loadComic(2)" title="Comic #2: A Joke Book">2</span>
                     <span class="grid-square"></span>
                     <span class="grid-square"></span>
                     <span class="grid-square"></span>
@@ -294,16 +300,46 @@
 
             <!-- COMIC DISPLAY PANEL -->
             <td class="col-center">
-                <h2 class="comic-title">Episode 1: Begin Adventure</h2>
+                <h2 class="comic-title" id="comic-title">Episode 2: A Joke Book</h2>
                 
                 <div class="comic-container">
-                    <img class="comic-img" src="slice_of_toad_1.png" alt="Slice of Toad Comic #1">
+                    <img class="comic-img" id="comic-img" src="slice_of_toad_2.png" alt="Slice of Toad Comic #2 - A Joke Book">
                 </div>
             </td>
         </tr>
     </table>
 
 </div>
+
+<!-- EPISODE SWITCHER SCRIPT -->
+<script>
+    const episodes = {
+        1: {
+            title: "Episode 1: Begin Adventure",
+            src: "slice_of_toad_1.png",
+            alt: "Slice of Toad Comic #1 - Begin Adventure"
+        },
+        2: {
+            title: "Episode 2: A Joke Book",
+            src: "slice_of_toad_2.png",
+            alt: "Slice of Toad Comic #2 - A Joke Book"
+        }
+    };
+
+    function loadComic(num) {
+        if (!episodes[num]) return;
+
+        // Update Title & Image
+        document.getElementById('comic-title').textContent = episodes[num].title;
+        document.getElementById('comic-img').src = episodes[num].src;
+        document.getElementById('comic-img').alt = episodes[num].alt;
+
+        // Update active grid highlights
+        document.querySelectorAll('.grid-square').forEach(el => el.classList.remove('selected'));
+        const activeBtn = document.getElementById(`btn-${num}`);
+        if (activeBtn) activeBtn.classList.add('selected');
+    }
+</script>
 
 </body>
 </html>
