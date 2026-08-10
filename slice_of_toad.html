@@ -218,7 +218,7 @@
 
         .comic-img {
             max-width: 100%;
-            height: auto;
+            height auto;
             display: block;
             margin: 0 auto;
         }
@@ -255,8 +255,8 @@
                 <div class="grid-5x5">
                     <!-- Row 1 -->
                     <span class="grid-square active" id="btn-1" onclick="loadComic(1)" title="Comic #1: Begin Adventure">1</span>
-                    <span class="grid-square active selected" id="btn-2" onclick="loadComic(2)" title="Comic #2: A Joke Book">2</span>
-                    <span class="grid-square"></span>
+                    <span class="grid-square active" id="btn-2" onclick="loadComic(2)" title="Comic #2: A Joke Book">2</span>
+                    <span class="grid-square active selected" id="btn-3" onclick="loadComic(3)" title="Comic #3: Lift">3</span>
                     <span class="grid-square"></span>
                     <span class="grid-square"></span>
 
@@ -300,10 +300,10 @@
 
             <!-- COMIC DISPLAY PANEL -->
             <td class="col-center">
-                <h2 class="comic-title" id="comic-title">Episode 2: A Joke Book</h2>
+                <h2 class="comic-title" id="comic-title">Episode 3: Lift</h2>
                 
                 <div class="comic-container">
-                    <img class="comic-img" id="comic-img" src="slice_of_toad_2.png" alt="Slice of Toad Comic #2 - A Joke Book">
+                    <img class="comic-img" id="comic-img" src="slice_of_toad_3.png" alt="Slice of Toad Comic #3">
                 </div>
             </td>
         </tr>
@@ -323,6 +323,11 @@
             title: "Episode 2: A Joke Book",
             src: "slice_of_toad_2.png",
             alt: "Slice of Toad Comic #2 - A Joke Book"
+        },
+        3: {
+            title: "Episode 3: Lift",
+            src: "slice_of_toad_3.png",
+            alt: "Slice of Toad Comic #3"
         }
     };
 
