@@ -364,32 +364,46 @@
         .classic-box .col-center {
             flex-grow: 1;
         }
-
-        /* --- MOBILE RESPONSIVE STACKING --- */
+        
+       /* -- COMPACT MOBILE SIDE-BY-SIDE LAYOUT -- */
 @media screen and (max-width: 768px) {
-    /* Make the body padding a bit tighter on mobile */
     body {
-        padding: 10px 5px;
+        padding: 8px 4px;
+        font-size: 13px; /* Slightly tighter text for mobile screens */
     }
 
-    /* Force all classic-box table rows to stack vertically */
-    .classic-box tr,
-    .wrapper > .classic-box:nth-of-type(n+2) tr {
-        display: block !important;
+    .wrapper {
+        max-width: 100%;
+        padding: 0;
     }
 
-    /* Force sidebars and center columns to take up full width */
-    .classic-box .col-side,
-    .classic-box .col-center,
-    .classic-box .header-center {
-        width: 100% !important;
-        display: block !important;
-        box-sizing: border-box;
+    /* Keep table cells side-by-side, but make the sidebar compact */
+    .classic-box td.col-side {
+        width: 65px !important;
+        padding: 8px 4px !important;
+        text-align: center;
+        vertical-align: top;
     }
 
-    /* Adjust margins or spacing for mobile headers if needed */
-    h1 {
-        font-size: 28px; /* Slightly smaller title for mobile screens */
+    /* Shrink the sidebar doodles so they don't blow up in size */
+    .classic-box td.col-side img {
+        max-width: 45px !important;
+        height: auto;
+    }
+
+    /* Tighten padding inside the main content column */
+    .classic-box td.col-center {
+        padding: 10px 8px !important;
+    }
+
+    /* Adjust title sizes for mobile */
+    .essay-title {
+        font-size: 16px !important;
+    }
+
+    .comic-header-title {
+        font-size: 26px !important;
+        left: 15px;
     }
 }
 
@@ -479,7 +493,7 @@ body {
 
                 <p>The funny thing about listening to an old video game soundtrack is the memories it plants in your mind while you’re listening to it.  The soundtrack was arranged in chronological order, so I happily smiled as the songs carried me through Link’s journey from start to finish.  What I ultimately realized is that I was essentially reliving the game, or more accurately, allowing my mind to remember myself playing the game many years ago.</p>
 
-                <p>It is interesting to note that, while listening to the songs alone, I was able to visualize different areas in Hyrule, different dungeons, and different characters.  What became even more interesting, however, is that as the tracks progressed and as my listening time added up, it was almost as if my memory recall improved as well.  I started remembering things on a small scale in addition to those on a larger one.</p>
+                <p>It is very interesting to note that, while listening to the songs alone, I was able to visualize different areas in Hyrule, different dungeons, and different characters.  What became even more interesting, however, is that as the tracks progressed and as my listening time added up, it was almost as if my memory recall improved as well.  I started remembering things on a small scale in addition to those on a larger one.</p>
 
                 <p>I began remembering the sound of Gold Skulltulas scurrying on walls, hidden in plain sight.  I also remembered different mechanics like planting magic beans and seeing them grow into full plants once the Song of Time is played and the master sword is pulled from its pedestal.  I remembered different battles and situational requirements for defeating enemies simply by hearing specific battle tunes again.  I also recalled aspects of the story that were long trapped in the recesses of my mind.</p>
 
