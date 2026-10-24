@@ -171,6 +171,7 @@
                 #fdd835 30px
             );
             animation: flash 1s steps(1) infinite;
+
         }
 
         /* Keyframe logic: Inverts yellow and black colors on step 2 */
@@ -363,6 +364,46 @@
         .classic-box .col-center {
             flex-grow: 1;
         }
+
+        /* --- MOBILE RESPONSIVE STACKING --- */
+@media screen and (max-width: 768px) {
+    /* Make the body padding a bit tighter on mobile */
+    body {
+        padding: 10px 5px;
+    }
+
+    /* Force all classic-box table rows to stack vertically */
+    .classic-box tr,
+    .wrapper > .classic-box:nth-of-type(n+2) tr {
+        display: block !important;
+    }
+
+    /* Force sidebars and center columns to take up full width */
+    .classic-box .col-side,
+    .classic-box .col-center,
+    .classic-box .header-center {
+        width: 100% !important;
+        display: block !important;
+        box-sizing: border-box;
+    }
+
+    /* Adjust margins or spacing for mobile headers if needed */
+    h1 {
+        font-size: 28px; /* Slightly smaller title for mobile screens */
+    }
+}
+
+/* --- CRT SCANLINE OVERLAY --- */
+body {
+    background-image: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.08),
+        rgba(0, 0, 0, 0.08) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    background-attachment: fixed; /* Keeps the scanlines locked in place while scrolling */
+}
     </style>
 </head>
 <body>
@@ -642,34 +683,6 @@
     setImage('doodle-today', shuffled[0]);
     setImage('doodle-yesterday', shuffled[1]);
     setImage('doodle-daybefore', shuffled[2]);
-
-/* --- MOBILE RESPONSIVE STACKING --- */
-@media screen and (max-width: 768px) {
-    /* Make the body padding a bit tighter on mobile */
-    body {
-        padding: 10px 5px;
-    }
-
-    /* Force all classic-box table rows to stack vertically */
-    .classic-box tr,
-    .wrapper > .classic-box:nth-of-type(n+2) tr {
-        display: block !important;
-    }
-
-    /* Force sidebars and center columns to take up full width */
-    .classic-box .col-side,
-    .classic-box .col-center,
-    .classic-box .header-center {
-        width: 100% !important;
-        display: block !important;
-        box-sizing: border-box;
-    }
-
-    /* Adjust margins or spacing for mobile headers if needed */
-    h1 {
-        font-size: 28px; /* Slightly smaller title for mobile screens */
-    }
-}
    
 </script>
 
