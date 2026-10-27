@@ -1,0 +1,393 @@
+body {
+    /* Fallback color before script runs */
+    background-color: #F8A29D; 
+    color: #333333;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 1.7;
+    margin: 0;
+    padding: 30px 10px;
+    background-image: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.08),
+        rgba(0, 0, 0, 0.08) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    background-attachment: fixed; /* Keeps the scanlines locked in place while scrolling */
+}
+
+.wrapper {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+/* Classic Beveled 3D Box with Shadow */
+.classic-box {
+    background-color: #ffffff;
+    border: 4px ridge #d0c8be;
+    margin-bottom: 12px;
+    border-collapse: separate;
+    border-spacing: 2px;
+    width: 100%;
+    box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.25);
+}
+
+/* Inset 3D Cell Shading */
+.classic-box td {
+    border: 2px groove #e8e2d8;
+    padding: 12px;
+    vertical-align: top;
+}
+
+.col-side {
+    width: 100px;
+    background-color: rgba(255, 255, 255, 0.4);
+    text-align: center;
+}
+
+.col-center {
+    text-align: left;
+    padding: 20px !important;
+    background-color: #ffffff;
+}
+
+.header-center {
+    text-align: center;
+    padding: 20px 10px !important;
+    background-color: #ffffff;
+}
+
+/* Classic Yellow Sticker / Outlined Logo Style */
+h1 {
+    font-family: "Arial Black", "Helvetica Neue", Helvetica, sans-serif;
+    font-weight: 900;
+    font-style: italic;
+    font-size: 34px;
+    color: #ffe600; /* Bold Yellow Fill */
+    margin: 0 0 2px 0;
+    display: inline-block;
+    
+    /* Thick crisp black outline */
+    -webkit-text-stroke: 1.8px #000000;
+    
+    /* Slight forward slant + drop shadow for depth */
+    transform: skewX(-8deg);
+    filter: drop-shadow(2px 2px 0px #000000);
+    letter-spacing: -0.5px;
+}
+
+/* Coolvetica Style Subtitle: Ultra-tight tracking, solid bold black */
+.coolvetica-subtitle {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 900;
+    font-size: 15px;
+    color: #111111; /* Solid dark black fill */
+    margin-top: 2px;
+    margin-bottom: 6px;
+    display: block;
+    letter-spacing: -1.2px;
+}
+
+/* Clean Slogan Style */
+.slogan {
+    font-family: "Arial Black", "M PLUS Rounded 1c", "Helvetica Neue", sans-serif;
+    font-weight: 900;
+    font-size: 14px;
+    text-transform: lowercase;
+    display: inline-block; 
+    margin-top: 8px;
+    margin-bottom: 2px;
+    line-height: 1.0; 
+    letter-spacing: -0.5px;
+    text-align: left; 
+    color: #5d564d; 
+}
+
+.slogan .slogan-line {
+    display: block;
+}
+
+.slogan .slogan-line:last-child {
+    color: #2e7d32; /* Green for "breathing" */
+    margin-top: -1px; 
+}
+
+.slogan .accent-word {
+    color: #5d564d; 
+    font-style: normal; 
+}
+
+/* Secret music trigger period */
+.period-trigger {
+    cursor: pointer;
+    user-select: none;
+    display: inline-block;
+    transition: transform 0.1s ease;
+}
+
+.period-trigger:active {
+    transform: scale(1.4);
+}
+
+.subtitle-tagline {
+    margin: 4px 0;
+    font-size: 12px;
+    color: #777777;
+}
+
+.version-date {
+    font-size: 12px;
+    font-weight: bold;
+    color: #555555;
+    margin-top: 10px;
+}
+
+/* Classic Banner Style with 3D Bevel matched dynamically to background */
+.day-banner {
+    background-color: transparent; 
+    border: 3px ridge #d0c8be;
+    text-align: center;
+    padding: 4px 0;
+    margin-top: 20px;
+    margin-bottom: 12px;
+    font-size: 11px;
+    color: #333333;
+    font-weight: bold;
+    box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
+}
+
+/* Animated Flashing Checkerboard Ribbon (Yellow & Black) */
+.checkerboard {
+    height: 8px;
+    margin-top: 4px;
+    background: repeating-linear-gradient(
+        90deg,
+        #222222 0px,
+        #222222 15px,
+        #fdd835 15px,
+        #fdd835 30px
+    );
+    animation: flash 1s steps(1) infinite;
+}
+
+@keyframes flash {
+    0% {
+        background: repeating-linear-gradient(
+            90deg,
+            #222222 0px,
+            #222222 15px,
+            #fdd835 15px,
+            #fdd835 30px
+        );
+    }
+    50% {
+        background: repeating-linear-gradient(
+            90deg,
+            #fdd835 0px,
+            #fdd835 15px,
+            #222222 15px,
+            #222222 30px
+        );
+    }
+}
+
+.essay-title {
+    font-family: "Helvetica Neue Extended", "Helvetica Extended", "Arial Black", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    color: #2b3a42;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.sidebar-item img {
+    max-width: 75px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Question Toad Wiggle Effect */
+.toad-question-img {
+    transition: transform 0.2s ease;
+    display: block;
+    margin: 0 auto;
+}
+
+a:hover .toad-question-img {
+    animation: toadWiggle 0.4s ease-in-out forwards;
+}
+
+@keyframes toadWiggle {
+    0% { transform: scale(1.15) rotate(0deg); }
+    25% { transform: scale(1.15) rotate(-8deg); }
+    50% { transform: scale(1.15) rotate(8deg); }
+    75% { transform: scale(1.15) rotate(-4deg); }
+    100% { transform: scale(1.15) rotate(0deg); }
+}
+
+/* SLICE OF TOAD SIDEBAR LINK & LOGO */
+.comic-sidebar-link {
+    display: inline-block;
+    text-decoration: none;
+    margin-top: 28px; 
+    padding: 2px 0;
+    text-align: left; 
+}
+
+.comic-sidebar-logo {
+    font-family: "Futura-Heavy", "Futura", "M PLUS Rounded 1c", "Avenir Next", "Century Gothic", sans-serif;
+    font-weight: 900;
+    font-size: 16px;
+    line-height: 1.0;
+    color: #2e7d32; 
+    text-decoration: none; 
+    letter-spacing: -0.5px;
+    display: block;
+    text-align: left;
+    transition: color 0.2s ease;
+}
+
+.comic-sidebar-logo .toad-word {
+    display: block;
+    margin-top: -3px; 
+}
+
+.comic-sidebar-subtext {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    font-weight: bold;
+    color: #d32f2f; 
+    text-decoration: underline; 
+    display: block;
+    text-align: left;
+    margin-top: 5px;
+    line-height: 1.2;
+    transition: color 0.2s ease;
+}
+
+.comic-sidebar-link:hover .comic-sidebar-logo,
+.comic-sidebar-link:hover .comic-sidebar-subtext {
+    color: #1a365d;
+}
+
+.comic-container {
+    text-align: center;
+    margin: 15px 0;
+}
+
+.comic-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.ask-link {
+    text-decoration: none;
+    display: block;
+}
+
+.feedback-container {
+    margin-top: 20px;
+    padding-top: 10px;
+    text-align: left;
+}
+
+.feedback-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    color: #777777;
+    font-size: 12px;
+    font-weight: bold;
+    transition: color 0.2s ease;
+}
+
+.feedback-icon {
+    width: 18px;
+    height: 14px;
+    stroke: #888888;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke 0.2s ease;
+}
+
+.feedback-link:hover .feedback-icon {
+    stroke: #2e7d32;
+}
+
+.feedback-link:hover {
+    color: #2e7d32;
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    font-size: 12px;
+    color: #666666;
+    margin-top: 20px;
+}
+
+/* Enable flex display for all entry table rows */
+.wrapper > .classic-box:nth-of-type(n+2) tr {
+    display: flex;
+}
+
+.wrapper > .classic-box:nth-of-type(even) tr {
+    flex-direction: row;
+}
+
+.wrapper > .classic-box:nth-of-type(odd) tr {
+    flex-direction: row-reverse;
+}
+
+.classic-box .col-side {
+    width: 100px;
+    flex-shrink: 0;
+}
+
+.classic-box .col-center {
+    flex-grow: 1;
+}
+
+/* -- COMPACT MOBILE SIDE-BY-SIDE LAYOUT -- */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 8px 4px;
+        font-size: 13px; 
+    }
+
+    .wrapper {
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .classic-box td.col-side {
+        width: 65px !important;
+        padding: 8px 4px !important;
+        text-align: center;
+        vertical-align: top;
+    }
+
+    .classic-box td.col-side img {
+        max-width: 45px !important;
+        height: auto;
+    }
+
+    .classic-box td.col-center {
+        padding: 10px 8px !important;
+    }
+
+    .essay-title {
+        font-size: 16px !important;
+    }
+
+    .comic-header-title {
+        font-size: 26px !important;
+        left: 15px;
+    }
+}
