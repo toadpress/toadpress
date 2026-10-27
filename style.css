@@ -390,7 +390,9 @@ footer {
         font-size: 26px !important;
         left: 15px;
     }
-    /* --- FALLING LEAVES BACKGROUND LAYER --- */
+}
+
+   /* --- FALLING LEAVES BACKGROUND LAYER --- */
 .leaf-container {
     position: fixed;
     top: 0;
@@ -412,18 +414,25 @@ footer {
 .leaf {
     position: absolute;
     top: -10%;
-    width: 24px;
-    height: 24px;
+    width: 24px;   /* Default width */
+    height: 24px;  /* Default height */
     opacity: 0.85;
     animation: fall linear infinite, sway ease-in-out infinite alternate;
+    pointer-events: none;
 }
 
-.leaf-1 { left: 5%;  animation-duration: 12s, 3s; animation-delay: 0s, 0s; }
-.leaf-2 { left: 20%; animation-duration: 16s, 4s; animation-delay: 3s, 1s; width: 18px; }
-.leaf-3 { left: 80%; animation-duration: 14s, 3.5s; animation-delay: 1s, 0.5s; }
-.leaf-4 { left: 92%; animation-duration: 18s, 4.5s; animation-delay: 5s, 2s; width: 28px; }
-.leaf-5 { left: 12%; animation-duration: 15s, 3s; animation-delay: 7s, 1s; width: 20px; }
+/* Force the SVG itself to fit inside its leaf wrapper box */
+.leaf svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
 
+.leaf-1 { left: 5%;  animation-duration: 12s, 3s; animation-delay: 0s, 0s; width: 22px; height: 22px; }
+.leaf-2 { left: 20%; animation-duration: 16s, 4s; animation-delay: 3s, 1s; width: 18px; height: 18px; }
+.leaf-3 { left: 80%; animation-duration: 14s, 3.5s; animation-delay: 1s, 0.5s; width: 25px; height: 25px; }
+.leaf-4 { left: 92%; animation-duration: 18s, 4.5s; animation-delay: 5s, 2s; width: 20px; height: 20px; }
+.leaf-5 { left: 12%; animation-duration: 15s, 3s; animation-delay: 7s, 1s; width: 26px; height: 26px; }
 @keyframes fall {
     0% {
         top: -10%;
@@ -442,5 +451,4 @@ footer {
     100% {
         margin-left: 20px;
     }
-}
 }
