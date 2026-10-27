@@ -390,4 +390,57 @@ footer {
         font-size: 26px !important;
         left: 15px;
     }
+    /* --- FALLING LEAVES BACKGROUND LAYER --- */
+.leaf-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Lets clicks pass right through */
+    z-index: 0;           /* Sits behind your content boxes */
+    overflow: hidden;
+}
+
+/* Force your content boxes to sit above the leaves */
+.wrapper, .classic-box {
+    position: relative;
+    z-index: 1;
+}
+
+/* Individual Leaf Styling & Animations */
+.leaf {
+    position: absolute;
+    top: -10%;
+    width: 24px;
+    height: 24px;
+    opacity: 0.85;
+    animation: fall linear infinite, sway ease-in-out infinite alternate;
+}
+
+.leaf-1 { left: 5%;  animation-duration: 12s, 3s; animation-delay: 0s, 0s; }
+.leaf-2 { left: 20%; animation-duration: 16s, 4s; animation-delay: 3s, 1s; width: 18px; }
+.leaf-3 { left: 80%; animation-duration: 14s, 3.5s; animation-delay: 1s, 0.5s; }
+.leaf-4 { left: 92%; animation-duration: 18s, 4.5s; animation-delay: 5s, 2s; width: 28px; }
+.leaf-5 { left: 12%; animation-duration: 15s, 3s; animation-delay: 7s, 1s; width: 20px; }
+
+@keyframes fall {
+    0% {
+        top: -10%;
+        transform: rotate(0deg);
+    }
+    100% {
+        top: 110%;
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes sway {
+    0% {
+        margin-left: -20px;
+    }
+    100% {
+        margin-left: 20px;
+    }
+}
 }
