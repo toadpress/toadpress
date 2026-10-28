@@ -401,7 +401,6 @@ footer {
     height: 100%;
     pointer-events: none; /* Lets clicks pass right through */
     z-index: 0;           /* Sits behind your content boxes */
-    overflow: hidden;
 }
 
 /* Force your content boxes to sit above the leaves */
