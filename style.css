@@ -7,14 +7,6 @@ body {
     line-height: 1.7;
     margin: 0;
     padding: 30px 10px;
-    background-image: repeating-linear-gradient(
-        0deg,
-        rgba(0, 0, 0, 0.08),
-        rgba(0, 0, 0, 0.08) 1px,
-        transparent 1px,
-        transparent 2px
-    );
-    background-attachment: fixed; /* Keeps the scanlines locked in place while scrolling */
 }
 
 .wrapper {
