@@ -33,7 +33,7 @@ body {
 }
 
 .col-side {
-    width: 100px;
+    width: 72px; /* Slimmer side column width for better essay reading space */
     background-color: rgba(255, 255, 255, 0.4);
     text-align: center;
 }
@@ -50,35 +50,23 @@ body {
     background-color: #ffffff;
 }
 
-/* Classic Yellow Sticker / Outlined Logo Style */
-h1 {
-    font-family: "Arial Black", "Helvetica Neue", Helvetica, sans-serif;
-    font-weight: 900;
-    font-style: italic;
-    font-size: 34px;
-    color: #ffe600; /* Bold Yellow Fill */
-    margin: 0 0 2px 0;
-    display: inline-block;
-    
-    /* Thick crisp black outline */
-    -webkit-text-stroke: 1.8px #000000;
-    
-    /* Slight forward slant + drop shadow for depth */
-    transform: skewX(-8deg);
-    filter: drop-shadow(2px 2px 0px #000000);
-    letter-spacing: -0.5px;
+/* --- PIXEL-PERFECT BADGE LOGO STYLING --- */
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 4px;
 }
 
-/* Coolvetica Style Subtitle: Ultra-tight tracking, solid bold black */
-.coolvetica-subtitle {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-weight: 900;
-    font-size: 15px;
-    color: #111111; /* Solid dark black fill */
-    margin-top: 2px;
-    margin-bottom: 6px;
-    display: block;
-    letter-spacing: -1.2px;
+.badge-logo {
+    max-width: 310px;
+    width: 100%;
+    height: auto;
+    display: inline-block;
+    
+    /* Crucial: Disables browser blurring to keep pixel-art aliased */
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
 }
 
 /* Clean Slogan Style */
@@ -193,7 +181,7 @@ h1 {
 }
 
 .sidebar-item img {
-    max-width: 75px;
+    max-width: 55px; /* Slimmer icon size to match narrow desktop columns */
     height: auto;
     display: block;
     margin: 0 auto;
@@ -338,7 +326,7 @@ footer {
 }
 
 .classic-box .col-side {
-    width: 100px;
+    width: 72px;
     flex-shrink: 0;
 }
 
@@ -356,17 +344,44 @@ footer {
     .wrapper {
         max-width: 100%;
         padding: 0;
+        overflow-x: hidden;
     }
 
-    .classic-box td.col-side {
-        width: 65px !important;
-        padding: 8px 4px !important;
+    /* --- MOBILE HEADER FIX (Keeps columns in correct order) --- */
+    .classic-box:first-of-type tr {
+        display: flex;
+        flex-direction: row !important;
+        width: 100%;
+    }
+
+    .classic-box:first-of-type .col-side {
+        width: 52px !important;
+        flex-shrink: 0;
+        padding: 6px 2px !important;
         text-align: center;
         vertical-align: top;
     }
 
+    .classic-box:first-of-type .header-center {
+        flex-grow: 1;
+        padding: 10px 4px !important;
+    }
+
+    /* Entry box side columns on mobile */
+    .classic-box td.col-side {
+        width: 52px !important;
+        padding: 6px 2px !important;
+        text-align: center;
+        vertical-align: top;
+    }
+
+    .badge-logo {
+        max-width: 100% !important;
+        height: auto;
+    }
+
     .classic-box td.col-side img {
-        max-width: 45px !important;
+        max-width: 38px !important;
         height: auto;
     }
 
