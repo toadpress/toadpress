@@ -8,7 +8,25 @@ function toggleSecretMusic() {
     }
 }
 
-// 1. Set Background & Banner Colors
+// Helper function to dynamically darken hex colors for the header banner
+function darkenHexColor(hex, percent) {
+    hex = hex.replace(/^#/, '');
+    if (hex.length === 3) {
+        hex = hex.split('').map(c => c + c).join('');
+    }
+    let num = parseInt(hex, 16);
+    let r = (num >> 16) + Math.round(255 * (percent / 100));
+    let g = ((num >> 8) & 0x00FF) + Math.round(255 * (percent / 100));
+    let b = (num & 0x0000FF) + Math.round(255 * (percent / 100));
+    
+    r = Math.min(255, Math.max(0, r));
+    g = Math.min(255, Math.max(0, g));
+    b = Math.min(255, Math.max(0, b));
+    
+    return `#${(1 << 24 | r << 16 | g << 8 | b).toString(16).slice(1)}`;
+}
+
+// 1. Set Background & Banner Colors + Dynamic Header Banner Darkening
 const dailyColors = {
     0: '#EDD1B3', // Sunday
     1: '#AFF0B8', // Monday
@@ -30,15 +48,36 @@ banners.forEach(banner => {
     banner.style.backgroundColor = currentColor;
 });
 
-// 2. Format & Automatically Update Header Version Date
+// Automatically calculate and set a darker version for the 1101-style header banner
+const headerBanner = document.querySelector('.site-header-banner');
+if (headerBanner) {
+    // Darkens the daily color by ~18% to create a rich contrast header
+    headerBanner.style.backgroundColor = darkenHexColor(currentColor, -18);
+}
+
+// 2. Format & Automatically Update Header Version Date & 1101 Header Date
 const daysArr = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
 const mm = String(now.getMonth() + 1).padStart(2, '0');
 const dd = String(now.getDate()).padStart(2, '0');
 const yyyy = now.getFullYear();
 const dayName = daysArr[dayIndex];
 
+// Update bottom footer version date
 const formattedDate = `${mm}-${dd}-${yyyy}-${dayName} version`;
-document.getElementById('version-date').textContent = formattedDate;
+const versionEl = document.getElementById('version-date');
+if (versionEl) {
+    versionEl.textContent = formattedDate;
+}
+
+// Update 1101-Style Header Banner Date (Month/Day and Day of Week pill)
+const headerMonthDayEl = document.getElementById('header-month-day');
+const headerDowEl = document.getElementById('header-dow');
+if (headerMonthDayEl) {
+    headerMonthDayEl.textContent = `${mm}/${dd}`;
+}
+if (headerDowEl) {
+    headerDowEl.textContent = dayName;
+}
 
 // 3. Seeded Daily Shuffle
 const doodles = [
