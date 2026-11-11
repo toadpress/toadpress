@@ -356,13 +356,35 @@ footer {
     .wrapper {
         max-width: 100%;
         padding: 0;
+        overflow-x: hidden; /* Prevents unwanted side-scrolling */
     }
 
-    .classic-box td.col-side {
+    /* --- FIX HEADER TABLE MOBILE SCALING --- */
+    .classic-box:first-of-type tr {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
+
+    .classic-box:first-of-type .col-side {
         width: 65px !important;
+        flex-shrink: 0;
         padding: 8px 4px !important;
         text-align: center;
-        vertical-align: top;
+        vertical-align: middle;
+    }
+
+    .classic-box:first-of-type .header-center {
+        flex-grow: 1;
+        padding: 10px 4px !important;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    /* Scale down the badge logo nicely on mobile screens */
+    .badge-logo {
+        max-width: 100% !important;
+        height: auto;
     }
 
     .classic-box td.col-side img {
@@ -376,10 +398,5 @@ footer {
 
     .essay-title {
         font-size: 16px !important;
-    }
-
-    .comic-header-title {
-        font-size: 26px !important;
-        left: 15px;
     }
 }
