@@ -29,56 +29,49 @@ body {
 .classic-box td {
     border: 2px groove #e8e2d8;
     padding: 12px;
-    vertical-align: top;
+    vertical-align: middle;
 }
 
-.col-side {
-    width: 100px;
+/* --- SLIMMER DESKTOP SIDE COLUMNS --- */
+.classic-box .col-side {
+    width: 72px; /* Slimmer width to give essays more reading space */
     background-color: rgba(255, 255, 255, 0.4);
     text-align: center;
+    flex-shrink: 0;
 }
 
 .col-center {
     text-align: left;
     padding: 20px !important;
     background-color: #ffffff;
+    flex-grow: 1;
 }
 
 .header-center {
     text-align: center;
-    padding: 20px 10px !important;
+    padding: 14px 10px !important;
     background-color: #ffffff;
+    vertical-align: middle;
+    flex-grow: 1;
 }
 
-/* Classic Yellow Sticker / Outlined Logo Style */
-h1 {
-    font-family: "Arial Black", "Helvetica Neue", Helvetica, sans-serif;
-    font-weight: 900;
-    font-style: italic;
-    font-size: 34px;
-    color: #ffe600; /* Bold Yellow Fill */
-    margin: 0 0 2px 0;
+/* --- PIXEL-PERFECT BADGE LOGO STYLING --- */
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.badge-logo {
+    max-width: 310px;
+    width: 100%;
+    height: auto;
     display: inline-block;
     
-    /* Thick crisp black outline */
-    -webkit-text-stroke: 1.8px #000000;
-    
-    /* Slight forward slant + drop shadow for depth */
-    transform: skewX(-8deg);
-    filter: drop-shadow(2px 2px 0px #000000);
-    letter-spacing: -0.5px;
-}
-
-/* Coolvetica Style Subtitle: Ultra-tight tracking, solid bold black */
-.coolvetica-subtitle {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-weight: 900;
-    font-size: 15px;
-    color: #111111; /* Solid dark black fill */
-    margin-top: 2px;
-    margin-bottom: 6px;
-    display: block;
-    letter-spacing: -1.2px;
+    /* Crucial: Disables browser blurring to keep pixel-art aliased */
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
 }
 
 /* Clean Slogan Style */
@@ -123,16 +116,16 @@ h1 {
 }
 
 .subtitle-tagline {
-    margin: 4px 0;
+    margin: 4px 0 2px 0;
     font-size: 12px;
     color: #777777;
 }
 
 .version-date {
-    font-size: 12px;
+    font-size: 11px;
     font-weight: bold;
     color: #555555;
-    margin-top: 10px;
+    margin-top: 2px;
 }
 
 /* Classic Banner Style with 3D Bevel matched dynamically to background */
@@ -193,7 +186,7 @@ h1 {
 }
 
 .sidebar-item img {
-    max-width: 75px;
+    max-width: 55px;
     height: auto;
     display: block;
     margin: 0 auto;
@@ -218,103 +211,9 @@ a:hover .toad-question-img {
     100% { transform: scale(1.15) rotate(0deg); }
 }
 
-/* SLICE OF TOAD SIDEBAR LINK & LOGO */
-.comic-sidebar-link {
-    display: inline-block;
-    text-decoration: none;
-    margin-top: 28px; 
-    padding: 2px 0;
-    text-align: left; 
-}
-
-.comic-sidebar-logo {
-    font-family: "Futura-Heavy", "Futura", "M PLUS Rounded 1c", "Avenir Next", "Century Gothic", sans-serif;
-    font-weight: 900;
-    font-size: 16px;
-    line-height: 1.0;
-    color: #2e7d32; 
-    text-decoration: none; 
-    letter-spacing: -0.5px;
-    display: block;
-    text-align: left;
-    transition: color 0.2s ease;
-}
-
-.comic-sidebar-logo .toad-word {
-    display: block;
-    margin-top: -3px; 
-}
-
-.comic-sidebar-subtext {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 10px;
-    font-weight: bold;
-    color: #d32f2f; 
-    text-decoration: underline; 
-    display: block;
-    text-align: left;
-    margin-top: 5px;
-    line-height: 1.2;
-    transition: color 0.2s ease;
-}
-
-.comic-sidebar-link:hover .comic-sidebar-logo,
-.comic-sidebar-link:hover .comic-sidebar-subtext {
-    color: #1a365d;
-}
-
-.comic-container {
-    text-align: center;
-    margin: 15px 0;
-}
-
-.comic-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-}
-
 .ask-link {
     text-decoration: none;
     display: block;
-}
-
-.feedback-container {
-    margin-top: 20px;
-    padding-top: 10px;
-    text-align: left;
-}
-
-.feedback-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    text-decoration: none;
-    color: #777777;
-    font-size: 12px;
-    font-weight: bold;
-    transition: color 0.2s ease;
-}
-
-.feedback-icon {
-    width: 18px;
-    height: 14px;
-    stroke: #888888;
-    fill: none;
-    stroke-width: 2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    transition: stroke 0.2s ease;
-}
-
-.feedback-link:hover .feedback-icon {
-    stroke: #2e7d32;
-}
-
-.feedback-link:hover {
-    color: #2e7d32;
-    text-decoration: underline;
 }
 
 footer {
@@ -324,7 +223,7 @@ footer {
     margin-top: 20px;
 }
 
-/* Enable flex display for all entry table rows */
+/* Enable flex display for all entry table rows (alternating layout) */
 .wrapper > .classic-box:nth-of-type(n+2) tr {
     display: flex;
 }
@@ -337,15 +236,6 @@ footer {
     flex-direction: row-reverse;
 }
 
-.classic-box .col-side {
-    width: 100px;
-    flex-shrink: 0;
-}
-
-.classic-box .col-center {
-    flex-grow: 1;
-}
-
 /* -- COMPACT MOBILE SIDE-BY-SIDE LAYOUT -- */
 @media screen and (max-width: 768px) {
     body {
@@ -356,20 +246,20 @@ footer {
     .wrapper {
         max-width: 100%;
         padding: 0;
-        overflow-x: hidden; /* Prevents unwanted side-scrolling */
+        overflow-x: hidden; /* Prevents side-scrolling overflow */
     }
 
-    /* --- FIX HEADER TABLE MOBILE SCALING --- */
+    /* --- FIX HEADER TABLE MOBILE SCALING & ORIENTATION --- */
     .classic-box:first-of-type tr {
         display: flex;
-        flex-direction: row;
+        flex-direction: row !important; /* Forces normal left-to-right order so columns don't flip */
         width: 100%;
     }
 
     .classic-box:first-of-type .col-side {
-        width: 65px !important;
+        width: 52px !important; /* Slimmer mobile side columns */
         flex-shrink: 0;
-        padding: 8px 4px !important;
+        padding: 6px 2px !important;
         text-align: center;
         vertical-align: middle;
     }
@@ -381,14 +271,21 @@ footer {
         vertical-align: middle;
     }
 
-    /* Scale down the badge logo nicely on mobile screens */
+    /* Slim down entry box side columns on mobile */
+    .wrapper > .classic-box:nth-of-type(n+2) .col-side {
+        width: 52px !important;
+        flex-shrink: 0;
+        padding: 6px 2px !important;
+    }
+
+    /* Scale down icons proportionally */
     .badge-logo {
         max-width: 100% !important;
         height: auto;
     }
 
     .classic-box td.col-side img {
-        max-width: 45px !important;
+        max-width: 38px !important;
         height: auto;
     }
 
