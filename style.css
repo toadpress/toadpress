@@ -650,16 +650,81 @@ footer {
     stroke-linejoin: round;
 }
 
-/* Mobile Responsiveness */
+/* --- MOBILE RESPONSIVENESS & SEPARATE LAYOUT --- */
 @media screen and (max-width: 768px) {
+    body {
+        padding: 8px 4px;
+        font-size: 13px; 
+    }
+
+    .wrapper {
+        max-width: 100%;
+        padding: 0;
+        overflow-x: hidden;
+    }
+
+    /* Stack the header banner items vertically on mobile so everything has breathing room */
     .site-header-banner tr {
         flex-direction: column !important;
-        align-items: stretch;
+        align-items: stretch !important;
     }
     
-    .header-right-col {
-        justify-content: center;
-        border-top: 2px groove rgba(0, 0, 0, 0.15) !important;
-        padding: 8px !important;
+    .header-left-col {
+        text-align: center !important; /* Centers the logo on mobile */
+        padding: 12px 8px !important;
     }
+
+    .header-right-col {
+        justify-content: center !important;
+        border-top: 2px groove rgba(0, 0, 0, 0.15) !important;
+        padding: 12px 8px !important;
+    }
+
+    /* Inside the right column on mobile, stack the icon/date on top, and put links side-by-side underneath */
+    .header-right-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .header-stack-container {
+        align-items: center;
+        text-align: center;
+    }
+
+    /* Forces the links to sit cleanly side-by-side right underneath on mobile */
+    .header-links-group {
+        flex-direction: row !important;
+        justify-content: center;
+        gap: 16px; /* Comfortable spacing between "about" and "ask" */
+        margin-top: 4px;
+    }
+
+    /* Entry box side columns on mobile */
+    .classic-box td.col-side {
+        width: 52px !important;
+        padding: 6px 2px !important;
+        text-align: center;
+        vertical-align: top;
+    }
+
+    .badge-logo {
+        max-width: 240px !important; /* Scales down the main logo nicely on mobile */
+        height: auto;
+        display: inline-block;
+    }
+
+    .classic-box td.col-side img {
+        max-width: 38px !important;
+        height: auto;
+    }
+
+    .classic-box td.col-center {
+        padding: 10px 8px !important;
+    }
+
+    .essay-title {
+        font-size: 16px !important;
+    }
+}   }
 }
