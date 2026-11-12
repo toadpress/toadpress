@@ -334,210 +334,9 @@ footer {
     flex-grow: 1;
 }
 
-/* -- COMPACT MOBILE SIDE-BY-SIDE LAYOUT -- */
-@media screen and (max-width: 768px) {
-    body {
-        padding: 8px 4px;
-        font-size: 13px; 
-    }
-
-    .wrapper {
-        max-width: 100%;
-        padding: 0;
-        overflow-x: hidden;
-    }
-
-    /* --- MOBILE HEADER FIX (Keeps columns in correct order) --- */
-    .classic-box:first-of-type tr {
-        display: flex;
-        flex-direction: row !important;
-        width: 100%;
-    }
-
-    .classic-box:first-of-type .col-side {
-        width: 52px !important;
-        flex-shrink: 0;
-        padding: 6px 2px !important;
-        text-align: center;
-        vertical-align: top;
-    }
-
-    .classic-box:first-of-type .header-center {
-        flex-grow: 1;
-        padding: 10px 4px !important;
-    }
-
-    /* Entry box side columns on mobile */
-    .classic-box td.col-side {
-        width: 52px !important;
-        padding: 6px 2px !important;
-        text-align: center;
-        vertical-align: top;
-    }
-
-    .badge-logo {
-        max-width: 100% !important;
-        height: auto;
-    }
-
-    .classic-box td.col-side img {
-        max-width: 38px !important;
-        height: auto;
-    }
-
-    .classic-box td.col-center {
-        padding: 10px 8px !important;
-    }
-
-    .essay-title {
-        font-size: 16px !important;
-    }
-
-    .comic-header-title {
-        font-size: 26px !important;
-        left: 15px;
-    }
-}
-/* --- new banner 11/11/26 --- */
+/* --- NEW 11/11/26 HEADER BANNER (DESKTOP & BASE) --- */
 .site-header-banner {
-    background-color: #d8807b; /* Fallback darker tone */
-    border: 4px ridge rgba(0, 0, 0, 0.15) !important;
-    padding: 0 !important;
-}
-
-.site-header-banner tr {
-    display: flex !important;
-    align-items: center;
-    width: 100%;
-}
-
-.header-left-col {
-    padding: 10px 14px !important;
-    text-align: left !important;
-    border: none !important;
-    background: transparent !important;
-}
-
-.header-center-spacer {
-    flex-grow: 1;
-    border: none !important;
-    background: transparent !important;
-    padding: 0 !important;
-}
-
-.header-right-col {
-    padding: 10px 14px !important;
-    border: none !important;
-    background: transparent !important;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-}
-
-.header-right-content {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.header-toad-icon {
-    width: 48px;
-    height: auto;
-    image-rendering: pixelated;
-}
-
-/* Date Styling: Larger, Bold Helvetica */
-.header-date-display {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 26px; /* Increased size to match reference scale */
-    font-weight: 900;
-    color: #ffffff; 
-    letter-spacing: -1px; /* Tighter modern tracking */
-    display: flex;
-    align-items: baseline;
-    gap: 6px;
-    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.2);
-}
-
-.dow-pill {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 13px; /* Slightly larger pill text */
-    font-weight: 800;
-    text-transform: uppercase;
-    background-color: rgba(0, 0, 0, 0);
-    color: #ffffff;
-    padding: 2px 5px;
-    border-radius: 3px;
-    letter-spacing: 0px;
-}
-
-/* Stack container for date and links */
-.header-stack-container {
-    display: flex;
-    flex-direction: column;
-    gap: 4px; /* Space between the date and the links row */
-}
-
-/* Make links sit side-by-side horizontally */
-.header-links-group {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 10px; /* Space between "about toad press" and "ask us anything" */
-    font-size: 11px;
-    font-weight: bold;
-}
-
-/* Right-side Links & Hover Effects */
-.header-links-group {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    font-size: 11px;
-    font-weight: bold;
-}
-
-.header-nav-link {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    color: #ffffff;
-    text-decoration: none;
-    transition: color 0.15s ease;
-    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.2);
-}
-
-.header-nav-link:hover {
-    color: #2e7d32 !important; /* Turns dark green on hover */
-    text-decoration: underline;
-}
-
-.header-icon {
-    width: 12px;
-    height: 12px;
-    stroke: currentColor;
-    fill: none;
-    stroke-width: 2.5;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-}
-
-/* Mobile Responsiveness */
-@media screen and (max-width: 768px) {
-    .site-header-banner tr {
-        flex-direction: column !important;
-        align-items: stretch;
-    }
-    
-    .header-right-col {
-        justify-content: center;
-        border-top: 2px groove rgba(0, 0, 0, 0.15) !important;
-        padding: 8px !important;
-    }
-}
-/* --- new banner 11/11/26 --- */
-.site-header-banner {
-    background-color: #d8807b; /* Fallback darker tone */
+    background-color: #d8807b;
     border: 4px ridge rgba(0, 0, 0, 0.15) !important;
     padding: 0 !important;
 }
@@ -586,10 +385,10 @@ footer {
 /* Date Styling: Larger, Bold Helvetica */
 .header-date-display {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 36px; /* Increased size to match reference scale */
+    font-size: 36px;
     font-weight: 900;
     color: #ffffff; 
-    letter-spacing: -1px; /* Tighter modern tracking */
+    letter-spacing: -1px;
     display: flex;
     align-items: baseline;
     gap: 0px;
@@ -598,7 +397,7 @@ footer {
 
 .dow-pill {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 13px; /* Slightly larger pill text */
+    font-size: 13px;
     font-weight: 800;
     text-transform: uppercase;
     background-color: rgba(0, 0, 0, 0);
@@ -612,15 +411,15 @@ footer {
 .header-stack-container {
     display: flex;
     flex-direction: column;
-    gap: 4px; /* Space between the date and the links row */
+    gap: 4px;
 }
 
 /* Make links sit side-by-side horizontally */
 .header-links-group {
     display: flex;
-    flex-direction: row; /* Side-by-side layout */
+    flex-direction: row;
     align-items: center;
-    gap: 12px; /* Space between "about toad press" and "ask us anything" */
+    gap: 12px;
     font-size: 11px;
     font-weight: bold;
 }
@@ -636,7 +435,7 @@ footer {
 }
 
 .header-nav-link:hover {
-    color: #2e7d32 !important; /* Turns dark green on hover */
+    color: #2e7d32 !important;
     text-decoration: underline;
 }
 
@@ -663,14 +462,14 @@ footer {
         overflow-x: hidden;
     }
 
-    /* Stack the header banner items vertically on mobile so everything has breathing room */
+    /* Stack header banner items vertically on mobile */
     .site-header-banner tr {
         flex-direction: column !important;
         align-items: stretch !important;
     }
     
     .header-left-col {
-        text-align: center !important; /* Centers the logo on mobile */
+        text-align: center !important;
         padding: 12px 8px !important;
     }
 
@@ -680,7 +479,6 @@ footer {
         padding: 12px 8px !important;
     }
 
-    /* Inside the right column on mobile, stack the icon/date on top, and put links side-by-side underneath */
     .header-right-content {
         flex-direction: column;
         align-items: center;
@@ -692,11 +490,11 @@ footer {
         text-align: center;
     }
 
-    /* Forces the links to sit cleanly side-by-side right underneath on mobile */
+    /* Side-by-side links neatly underneath the date on mobile */
     .header-links-group {
         flex-direction: row !important;
         justify-content: center;
-        gap: 16px; /* Comfortable spacing between "about" and "ask" */
+        gap: 16px;
         margin-top: 4px;
     }
 
@@ -709,7 +507,7 @@ footer {
     }
 
     .badge-logo {
-        max-width: 240px !important; /* Scales down the main logo nicely on mobile */
+        max-width: 240px !important;
         height: auto;
         display: inline-block;
     }
@@ -726,5 +524,4 @@ footer {
     .essay-title {
         font-size: 16px !important;
     }
-}   }
 }
