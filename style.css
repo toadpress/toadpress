@@ -376,6 +376,23 @@ footer {
     gap: 12px;
 }
 
+/* Stack container for date and links on desktop */
+.header-stack-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4px; /* Space between the date numerals and the links row */
+}
+
+/* Make links sit side-by-side horizontally underneath the date */
+.header-links-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px; 
+    font-size: 11px;
+    font-weight: bold;
+}
+
 .header-toad-icon {
     width: 36px;
     height: auto;
@@ -449,7 +466,7 @@ footer {
     stroke-linejoin: round;
 }
 
-/* --- MOBILE RESPONSIVENESS & SEPARATE LAYOUT --- */
+/* --- MOBILE RESPONSIVENESS: Side-by-Side Split Header --- */
 @media screen and (max-width: 768px) {
     body {
         padding: 8px 4px;
@@ -462,40 +479,60 @@ footer {
         overflow-x: hidden;
     }
 
-    /* Stack header banner items vertically on mobile */
+    /* Keep header banner row side-by-side on mobile */
     .site-header-banner tr {
-        flex-direction: column !important;
-        align-items: stretch !important;
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important;
     }
     
+    /* Left column: Logo + tight links underneath */
     .header-left-col {
-        text-align: center !important;
-        padding: 12px 8px !important;
+        flex: 1;
+        padding: 8px 6px !important;
+        text-align: left !important;
     }
 
+    .badge-logo {
+        max-width: 160px !important; /* Scales down the logo nicely on mobile */
+        height: auto;
+    }
+
+    /* Links grouped tightly under the logo */
+    .header-links-group {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 2px !important;
+        margin-top: 6px !important;
+        font-size: 10px !important;
+    }
+
+    /* Hide the empty middle spacer on mobile */
+    .header-center-spacer {
+        display: none !important;
+    }
+
+    /* Right column: Toad icon + Date counter */
     .header-right-col {
-        justify-content: center !important;
-        border-top: 2px groove rgba(0, 0, 0, 0.15) !important;
-        padding: 12px 8px !important;
+        flex: 0 0 auto;
+        padding: 8px 6px !important;
+        justify-content: flex-end !important;
+        border-top: none !important;
     }
 
     .header-right-content {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .header-stack-container {
-        align-items: center;
-        text-align: center;
-    }
-
-    /* Side-by-side links neatly underneath the date on mobile */
-    .header-links-group {
         flex-direction: row !important;
-        justify-content: center;
-        gap: 16px;
-        margin-top: 4px;
+        align-items: center !important;
+        gap: 6px !important;
+    }
+
+    .header-toad-icon {
+        width: 28px !important; /* Compact icon size for mobile */
+    }
+
+    .header-date-display {
+        font-size: 22px !important; /* Scaled down date numerals to fit mobile right side */
     }
 
     /* Entry box side columns on mobile */
@@ -504,12 +541,6 @@ footer {
         padding: 6px 2px !important;
         text-align: center;
         vertical-align: top;
-    }
-
-    .badge-logo {
-        max-width: 240px !important;
-        height: auto;
-        display: inline-block;
     }
 
     .classic-box td.col-side img {
